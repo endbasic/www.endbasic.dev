@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EndBASIC</title>
+    <link>https://www.endbasic.dev/</link>
+    <description>Recent content on EndBASIC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.endbasic.dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://www.endbasic.dev/about.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.endbasic.dev/about.html</guid>
+      <description>Motivation The computers of today are too complex to understand. To the uninitiated, they feel overwhelming. They take a long time to boot. They offer cluttered interfaces with lots of icons, buttons, and options. They are built on dozens of layers of abstraction. And because of these reasons, they feel fragile and not something that can be experimented with.
+If you want to learn to code today, you face a steep learning curve.</description>
+    </item>
+    
+    <item>
+      <title>Cloud service</title>
+      <link>https://www.endbasic.dev/service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.endbasic.dev/service.html</guid>
+      <description>Don&#39;t have an account yet? Start by creating one.
+Create account  Thank you for creating an account!Follow the instructions below to start using your new cloud storage. We can&#39;t wait to see what you create!
+Launch interpreter    const params = new URLSearchParams(window.location.hash.substring(1)); const aadIdToken = params.get(&#34;id_token&#34;); const aadError = params.get(&#34;error&#34;); if (aadIdToken == null &amp;&amp; aadError == null) { const div = document.getElementById(&#34;request&#34;); div.style.display = &#34;block&#34;; } else if (aadIdToken !</description>
+    </item>
+    
+    <item>
+      <title>Download</title>
+      <link>https://www.endbasic.dev/download.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.endbasic.dev/download.html</guid>
+      <description>Remember: you do not have to download EndBASIC to play with it.You can click here to open up a fully-local, browser-based session!
+Launch interpreter  Binary releases The latest version of EndBASIC is 0.6.0 and was released on 2021-02-19.
+   OS Platform Link     Linux x86_64 endbasic-0.6.0-linux-x86_64.tgz   macOS x86_64 endbasic-0.6.0-macos-x86_64.tgz   Windows x86_64 endbasic-0.6.0-windows-x86_64.zip   Linux Raspberry Pi (ARM v7) endbasic-0.6.0-linux-armv7-rpi.tgz    For more details visit the release page on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>Help</title>
+      <link>https://www.endbasic.dev/help.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.endbasic.dev/help.html</guid>
+      <description>Support If you encounter any issues, please file a bug report or contact me via email or Twitter.
+Built-in help EndBASIC is designed to be self-documenting. To access the built-in documentation, type HELP within the interpreter, which will greet you with a message like this:
+Ready HELP EndBASIC 0.7.0 Copyright 2020-2021 Julio Merino Project page at &amp;lt;https://github.com/endbasic/endbasic&amp;gt; License Apache Version 2.0 &amp;lt;http://www.apache.org/licenses/LICENSE-2.0&amp;gt; Top-level help topics: &amp;gt;&amp;gt; Array functions &amp;gt;&amp;gt; Cloud access &amp;gt;&amp;gt; Console &amp;gt;&amp;gt; File system &amp;gt;&amp;gt; Hardware interface &amp;gt;&amp;gt; Interpreter &amp;gt;&amp;gt; Language reference &amp;gt;&amp;gt; Numerical functions &amp;gt;&amp;gt; Stored program &amp;gt;&amp;gt; String functions Type HELP followed by the name of a topic for details.</description>
+    </item>
+    
+  </channel>
+</rss>

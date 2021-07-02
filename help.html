@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L7MRH87TD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6L7MRH87TD');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+
+  <meta name="description" content="Support If you encounter any issues, please file a bug report or contact me via email or Twitter.
+Built-in help EndBASIC is designed to be self-documenting. To access the built-in documentation, type HELP within the interpreter, which will greet you with a message like this:
+Ready HELP EndBASIC 0.7.0 Copyright 2020-2021 Julio Merino Project page at &amp;lt;https://github.com/endbasic/endbasic&amp;gt; License Apache Version 2.0 &amp;lt;http://www.apache.org/licenses/LICENSE-2.0&amp;gt; Top-level help topics: &amp;gt;&amp;gt; Array functions &amp;gt;&amp;gt; Cloud access &amp;gt;&amp;gt; Console &amp;gt;&amp;gt; File system &amp;gt;&amp;gt; Hardware interface &amp;gt;&amp;gt; Interpreter &amp;gt;&amp;gt; Language reference &amp;gt;&amp;gt; Numerical functions &amp;gt;&amp;gt; Stored program &amp;gt;&amp;gt; String functions Type HELP followed by the name of a topic for details.">
+  <meta name="author" content="Julio Merino">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  <link rel="canonical" href="https://www.endbasic.dev/help.html">
+
+  <link rel="stylesheet" href="/sass/main.min.f2b2da04147e1777f672b8532b7df84fa163cd2da60631c0acebbab0465c37b7.css">
+  <link rel="stylesheet" href="/css/chroma.css">
+</head>
+
+
+  <body>
+    <nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 font-weight-bold" href="/">EndBASIC</a><a class="py-2 d-none d-md-inline-block" href="/about.html">About</a><a class="py-2 d-none d-md-inline-block" href="/download.html">Download</a><a class="py-2 d-none d-md-inline-block" href="/service.html">Cloud service</a><a class="py-2 d-none d-md-inline-block nav-active" href="/help.html">Help</a><a class="py-2 d-none d-md-inline-block" href="https://jmmv.dev/tags/endbasic/" target="_new">Blog</a>
+  </div>
+</nav>
+
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark bg-grid">
+      <div class="p-lg-1 mx-auto my-1 text-white text-left">
+        <h1 class="title display-4 font-weight-normal">Ready<br/>Help&#9608;</h1>
+          
+        </div>
+      </div>
+
+    <article class="container">
+      <h1 id="support">Support</h1>
+<p>If you encounter any issues, please <a href="https://github.com/endbasic/endbasic/issues/new">file a bug report</a> or contact me via <a href="mailto:jmmv@endbasic.dev">email</a> or <a href="https://twitter.com/jmmv/">Twitter</a>.</p>
+<h1 id="built-in-help">Built-in help</h1>
+<p>EndBASIC is designed to be self-documenting. To access the built-in documentation, type <code>HELP</code> within the interpreter, which will greet you with a message like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-plain" data-lang="plain">Ready
+HELP
+
+    EndBASIC 0.7.0
+    Copyright 2020-2021 Julio Merino
+
+    Project page at &lt;https://github.com/endbasic/endbasic&gt;
+    License Apache Version 2.0 &lt;http://www.apache.org/licenses/LICENSE-2.0&gt;
+
+    Top-level help topics:
+
+    &gt;&gt; Array functions
+    &gt;&gt; Cloud access
+    &gt;&gt; Console
+    &gt;&gt; File system
+    &gt;&gt; Hardware interface
+    &gt;&gt; Interpreter
+    &gt;&gt; Language reference
+    &gt;&gt; Numerical functions
+    &gt;&gt; Stored program
+    &gt;&gt; String functions
+
+    Type HELP followed by the name of a topic for details.
+    Type HELP HELP for details on how to specify topic names.
+</code></pre></div><p>This main help page shows you the available help topics. To get extra help, you need to provide one of those topics to the <code>HELP</code> command. Topic matching is done on a prefix basis, so you can type only part of the topic name. For example, to access the <strong>Array functions</strong> topic:</p>
+<div class="highlight"><pre class="chroma"><code class="language-plain" data-lang="plain">Ready
+HELP ARR
+
+    Array functions
+
+    &gt;&gt; LBOUND%    Returns the lower bound for the given dimension of the array.
+    &gt;&gt; UBOUND%    Returns the upper bound for the given dimension of the array.
+
+    Type HELP followed by the name of a symbol for details.
+</code></pre></div><p>And from there, you can also obtain extra information on the subtopics. For example, to get details on the <code>LBOUND%</code> function:</p>
+<div class="highlight"><pre class="chroma"><code class="language-plain" data-lang="plain">Ready
+HELP LB
+
+    LBOUND%(array[, dimension%])
+
+    Returns the lower bound for the given dimension of the array.
+
+    The lower bound is the smallest available subscript that can be
+    provided to array indexing operations.
+
+    For one-dimensional arrays, the dimension% is optional.  For
+    multi-dimensional arrays, the dimension% is a 1-indexed integer.
+</code></pre></div><p>In lieu of on-line documentation, you can also check out the <a href="https://raw.githubusercontent.com/endbasic/endbasic/master/cli/tests/repl/help.out">full dump of all help messages</a> as checked into the repository, but I understand that this is not a great way to consume this information.</p>
+
+    </article>
+
+    <footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md text-center">
+      EndBASIC
+      <small class="d-block mb-3 text-muted">Julio Merino &copy; 2020-2021</small>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/popper-1.14.3.min.js"></script>
+<script src="/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

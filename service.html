@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L7MRH87TD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6L7MRH87TD');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+
+  <meta name="description" content="Don&#39;t have an account yet? Start by creating one.
+Create account  Thank you for creating an account!Follow the instructions below to start using your new cloud storage. We can&#39;t wait to see what you create!
+Launch interpreter    const params = new URLSearchParams(window.location.hash.substring(1)); const aadIdToken = params.get(&#34;id_token&#34;); const aadError = params.get(&#34;error&#34;); if (aadIdToken == null &amp;&amp; aadError == null) { const div = document.getElementById(&#34;request&#34;); div.style.display = &#34;block&#34;; } else if (aadIdToken !">
+  <meta name="author" content="Julio Merino">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  <link rel="canonical" href="https://www.endbasic.dev/service.html">
+
+  <link rel="stylesheet" href="/sass/main.min.f2b2da04147e1777f672b8532b7df84fa163cd2da60631c0acebbab0465c37b7.css">
+  <link rel="stylesheet" href="/css/chroma.css">
+</head>
+
+
+  <body>
+    <nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 font-weight-bold" href="/">EndBASIC</a><a class="py-2 d-none d-md-inline-block" href="/about.html">About</a><a class="py-2 d-none d-md-inline-block" href="/download.html">Download</a><a class="py-2 d-none d-md-inline-block nav-active" href="/service.html">Cloud service</a><a class="py-2 d-none d-md-inline-block" href="/help.html">Help</a><a class="py-2 d-none d-md-inline-block" href="https://jmmv.dev/tags/endbasic/" target="_new">Blog</a>
+  </div>
+</nav>
+
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark bg-grid">
+      <div class="p-lg-1 mx-auto my-1 text-white text-left">
+        <h1 class="title display-4 font-weight-normal">Ready<br/>Cloud service&#9608;</h1>
+          
+        </div>
+      </div>
+
+    <article class="container">
+      <div id="request" class="alert alert-warning text-center" style="display: none;">
+    <p>Don't have an account yet? Start by creating one.</p>
+    <a class="btn btn-secondary btn-lg" href="https://endbasic.b2clogin.com/endbasic.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_SignUp&client_id=ca6a2161-3197-4b5b-8857-30d66fd798b3&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fwww.endbasic.dev%2Fservice.html&scope=openid&response_type=id_token&prompt=login" target="_new">Create account</a>
+
+</div>
+<div id="aad-response" class="alert alert-success text-center" style="display: none;">
+    <p>Thank you for creating an account!<br/>Follow the instructions below to start using your new cloud storage. We can't wait to see what you create!</p>
+    <a class="btn btn-primary btn-lg" href="https://repl.endbasic.dev/" target="_new">Launch interpreter</a>
+
+</div>
+<div id="aad-error" class="alert alert-danger text-center" style="display: none;">
+    <p id="aad-error-p"></p>
+</div>
+<script>
+const params = new URLSearchParams(window.location.hash.substring(1));
+const aadIdToken = params.get("id_token");
+const aadError = params.get("error");
+if (aadIdToken == null && aadError == null) {
+    const div = document.getElementById("request");
+    div.style.display = "block";
+} else if (aadIdToken != null) {
+    const div = document.getElementById("aad-response");
+    div.style.display = "block";
+} else if (aadError != null) {
+    const div = document.getElementById("aad-error");
+    div.style.display = "block";
+    const p = document.getElementById("aad-error-p");
+
+    const aadErrorDescription = params.get("error_description");
+    p.textContent = "Authentication error: " + aadError + "; details: " + aadErrorDescription;
+}
+</script>
+<h1 id="getting-started">Getting started</h1>
+<p>The EndBASIC service is a simple cloud-based file sharing service that lets you maintain and share your creations with the world, right from the EndBASIC command line.</p>
+<p>Once you have created an account, all you have to do is type <code>LOGIN &quot;username&quot;</code> to log into your account:</p>
+<div class="highlight"><pre class="chroma"><code class="language-plain" data-lang="plain">Ready
+LOGIN &#34;jmmv&#34;
+Password: ********
+
+----- BEGIN SERVER MOTD -----
+Welcome back, jmmv! It&#39;s good to see you again.
+-----  END SERVER MOTD  -----
+</code></pre></div><h1 id="your-drive">Your drive</h1>
+<p>After a successful log in, the EndBASIC client will mount the <code>CLOUD:</code> drive, which is your personal space to hold files in the cloud. Any files stored in this drive are private to you by default, but they can be shared with others with ease using the <code>SHARE</code> command.</p>
+<div class="highlight"><pre class="chroma"><code class="language-plain" data-lang="plain">Ready
+CD &#34;CLOUD:&#34;
+Ready
+DIR
+
+    Directory of CLOUD:/
+
+    Modified              Size    Name
+    2021-06-25 13:51       116    thanks.bas
+    2021-06-25 13:50       103    welcome.bas
+
+    2 file(s), 219 bytes
+    65317 of 65536 bytes free
+</code></pre></div><h1 id="other-peoples-drives">Other people&rsquo;s drives</h1>
+<p>Right after a successful login, you will see the list of users in the system that have shared files with you (either directly or with the general public). Say one of those users is <code>xyz</code> and you want to access their shiny files. You would do something like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-plain" data-lang="plain">Ready
+MOUNT &#34;X&#34;, &#34;cloud://xyz&#34;
+Ready
+CD &#34;X:&#34;
+Ready
+DIR
+
+    Directory of X:/
+
+    Modified              Size    Name
+    2021-06-27 12:15       980    the shared file.bas
+
+    1 file(s), 980 bytes
+</code></pre></div><h1 id="privacy-and-security-notes">Privacy and security notes</h1>
+<p>EndBASIC is, right now, a toy project. While I have tried my best to keep the service secure and private, I ask that you <i>do not store any sensitive information in this service</i>.</p>
+<p>More specifically:</p>
+<ol>
+<li>
+<p>Your user account is managed by Azure Active Directory and your data is stored in an Azure Data database. Read the <a href="https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-overview">Azure Encryption documentation</a> for more details on what this entails.</p>
+</li>
+<li>
+<p>I collect high-level metadata on all requests to the cloud service for troubleshooting and data analytics purposes. Details include the contacted API endpoint, the client IP address, and the originating browser agent among others. The logs do not include the request payloads, but obviously the database does.</p>
+</li>
+<li>
+<p>You can update your account&rsquo;s information or permanently delete your account and all information associated with it. <a href="/help.html">Contact me</a> and I&rsquo;ll be happy to assist you; I haven&rsquo;t had a chance to build those features in the interface yet.</p>
+</li>
+<li>
+<p>Your email address collected during the sign-up process will only be used for service-related communications. It will never be given to third-parties (except to Azure Active Directory, which is the component collecting it).</p>
+</li>
+</ol>
+
+    </article>
+
+    <footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md text-center">
+      EndBASIC
+      <small class="d-block mb-3 text-muted">Julio Merino &copy; 2020-2021</small>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/popper-1.14.3.min.js"></script>
+<script src="/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
