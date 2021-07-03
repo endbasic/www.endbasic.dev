@@ -38,8 +38,8 @@ Launch interpreter    const params = new URLSearchParams(window.location.hash.su
       
       <guid>https://www.endbasic.dev/download.html</guid>
       <description>Remember: you do not have to download EndBASIC to play with it.You can click here to open up a fully-local, browser-based session!
-Launch interpreter  Binary releases The latest version of EndBASIC is 0.6.0 and was released on 2021-02-19.
-   OS Platform Link     Linux x86_64 endbasic-0.6.0-linux-x86_64.tgz   macOS x86_64 endbasic-0.6.0-macos-x86_64.tgz   Windows x86_64 endbasic-0.6.0-windows-x86_64.zip   Linux Raspberry Pi (ARM v7) endbasic-0.6.0-linux-armv7-rpi.tgz    For more details visit the release page on GitHub.</description>
+Launch interpreter  Binary releases The latest version of EndBASIC is 0.7.0 and was released on 2021-07-03.
+   OS Platform Link     Linux x86_64 endbasic-0.7.0-linux-x86_64.tgz   macOS x86_64 endbasic-0.7.0-macos-x86_64.tgz   Windows x86_64 endbasic-0.7.0-windows-x86_64.zip   Linux Raspberry Pi (ARM v7) endbasic-0.7.0-linux-armv7-rpi.tgz    For more details visit the release page on GitHub.</description>
     </item>
     
     <item>
