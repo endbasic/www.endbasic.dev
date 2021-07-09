@@ -32,6 +32,18 @@ Launch interpreter    const params = new URLSearchParams(window.location.hash.su
     </item>
     
     <item>
+      <title>Community</title>
+      <link>https://www.endbasic.dev/community.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.endbasic.dev/community.html</guid>
+      <description>Discussion channels EndBASIC is an open source project and we&amp;rsquo;d love to have you follow along its development, help with new features, or even just hear from your feedback!
+The community is just getting started though, so we&amp;rsquo;d really love it if you joined.
+Chat on Discord
+Project details  GitHub project: endbasic/endbasic Report an issue Send feedback  </description>
+    </item>
+    
+    <item>
       <title>Download</title>
       <link>https://www.endbasic.dev/download.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
