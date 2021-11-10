@@ -40,6 +40,7 @@ Launch interpreter    const params = new URLSearchParams(window.location.hash.su
       <description>Discussion channels EndBASIC is an open source project and we&amp;rsquo;d love to have you follow along its development, help with new features, or even just hear from your feedback!
 The community is just getting started though, so we&amp;rsquo;d really love it if you joined.
 Chat on Discord
+Join the mailing list
 Project details  GitHub project: endbasic/endbasic Report an issue Send feedback  </description>
     </item>
     
