@@ -72,10 +72,10 @@ Ready HELP EndBASIC 0.7.0 Copyright 2020-2021 Julio Merino Project page at &amp;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.endbasic.dev/media.html</guid>
-      <description>2021-11-11: EndBASIC 0.8 showcasing a couple of graphics programs loaded from a cloud file share.
+      <description>2021-11-11: EndBASIC demo for Handmade Seattle 2021, showcasing graphics support, hardware manipulation, and the cloud to build a retro-looking pong clone!
+     2021-11-11: EndBASIC 0.8 showcasing a couple of graphics programs loaded from a cloud file share.
    Can EndBASIC render graphics animations? Well, yes, now it can! 👇👇👇 pic.twitter.com/pWD2vslf7k
-&amp;mdash; Julio Merino (@jmmv) October 7, 2021  We&amp;#39;ve got lines, so we can now render a starry night in EndBASIC. pic.twitter.com/7qGvqqgiSG
-&amp;mdash; Julio Merino (@jmmv) October 6, 2021  File sharing across the local machine and the web, and across multiple user accounts: check!</description>
+&amp;mdash; Julio Merino (@jmmv) October 7, 2021  We&amp;#39;ve got lines, so we can now render a starry night in EndBASIC.</description>
     </item>
     
   </channel>
