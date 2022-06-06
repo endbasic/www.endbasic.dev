@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://www.endbasic.dev/">
 <meta property="og:type" content="website">
 <link rel=canonical href=https://www.endbasic.dev/>
-<link rel=stylesheet href=/sass/main.min.adfe6f3ad71fc16cd2476831566b541c30aa85cf03be3ea468aeb09ad0490b8f.css>
+<link rel=stylesheet href=/sass/main.min.559528fcad240edfd079af5db93c86ace4bdf0df172b9542c5b91822d3221244.css>
 <link rel=stylesheet href=/css/chroma.css>
 </head>
 <body>
@@ -28,13 +28,9 @@
 </li><li class=nav-item>
 <a class=nav-link href=/download.html>Download</a>
 </li><li class=nav-item>
-<a class=nav-link href=/media.html>Media</a>
-</li><li class=nav-item>
-<a class=nav-link href=/service.html>Cloud service</a>
+<a class=nav-link href=/docs.html>Documentation</a>
 </li><li class=nav-item>
 <a class=nav-link href=/community.html>Community</a>
-</li><li class=nav-item>
-<a class=nav-link href=/help.html>Help</a>
 </li><li class=nav-item>
 <a class=nav-link href=https://jmmv.dev/tags/endbasic/ target=_new>Blog</a>
 </li>
@@ -46,7 +42,6 @@
 <h1 class="title display-4 font-weight-normal">EndBASIC</h1>
 <p class="lead font-weight-normal">BASIC interpreter + DOS environment, reimagined.</p>
 <a class="btn btn-primary btn-lg" href=https://repl.endbasic.dev/ target=_new>Launch interpreter</a>
-<a class="btn btn-secondary btn-lg" href="https://endbasic.b2clogin.com/endbasic.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_SignUp&client_id=ca6a2161-3197-4b5b-8857-30d66fd798b3&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fwww.endbasic.dev%2Fservice.html&scope=openid&response_type=id_token&prompt=login" target=_new>Create account</a>
 </div>
 </div>
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
@@ -76,7 +71,7 @@
 <h2 class=display-5>Web-native and cloud-powered</h2>
 <img class=mr-3 src=/octicons/cloud-upload.svg width=128px height=128px>
 </a>
-<p class=lead>Run on the web and share your creations with friends via a free file sharing cloud service. No installation required.</p>
+<p class=lead>Run on the web and share your creations with the public via a free file sharing cloud service. No installation required.</p>
 </div>
 </div>
 <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-dark overflow-hidden">
@@ -119,8 +114,10 @@ EndBASIC
 </footer>
 <script>const SITE_ID='6a633c2c-7fda-11ec-86e4-1cfd087199c2'</script>
 <script type=module>
-  import { RequestsClient } from "\/js\/main.7975929169334b3e2b345683c7408972fc347690ecd5851fbdb3255e30999670.js";
+  import { addAnchorsToHeaders, RequestsClient } from "\/js\/main.b2165fe5f7efc012c3b988f4edfa3c4a940b338c442744e1e9ef8b8386f10d05.js";
   new RequestsClient(SITE_ID).saveRequest();
+
+  addAnchorsToHeaders();
 </script>
 <noscript>
 <img src="https://hugo-dynamic.endbasic.dev/api/sites/6a633c2c-7fda-11ec-86e4-1cfd087199c2/pages/aHR0cHM6Ly93d3cuZW5kYmFzaWMuZGV2Lw==/stamp.gif" style=display:none>
