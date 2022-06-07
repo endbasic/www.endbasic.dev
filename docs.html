@@ -6,8 +6,8 @@
 <meta property="og:site_name" content="EndBASIC">
 <title>Documentation - EndBASIC</title>
 <meta property="og:title" content="Documentation - EndBASIC">
-<meta name=description content="Introduction  Launching the interpreter Writing your first program Loading and saving Getting help   Language basics  Case sensitivity Primitive types Arrays Arithmetic operators Comparison operators Logical operators Expressions Conditional statements While loops For loops   Console  Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering   File system  Drives and paths Drive providers Side-loading files   Cloud service  Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes   Hardware access  GPIO   Configuration  AUTOEXEC.">
-<meta property="og:description" content="Introduction  Launching the interpreter Writing your first program Loading and saving Getting help   Language basics  Case sensitivity Primitive types Arrays Arithmetic operators Comparison operators Logical operators Expressions Conditional statements While loops For loops   Console  Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering   File system  Drives and paths Drive providers Side-loading files   Cloud service  Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes   Hardware access  GPIO   Configuration  AUTOEXEC.">
+<meta name=description content="Introduction  Launching the interpreter Writing your first program Loading and saving Getting help   Language basics  Case sensitivity Primitive types Arrays Arithmetic operators Comparison operators Logical operators Expressions GOTO Conditional statements While loops For loops   Console  Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering   File system  Drives and paths Drive providers Side-loading files   Cloud service  Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes   Hardware access  GPIO   Configuration  AUTOEXEC.">
+<meta property="og:description" content="Introduction  Launching the interpreter Writing your first program Loading and saving Getting help   Language basics  Case sensitivity Primitive types Arrays Arithmetic operators Comparison operators Logical operators Expressions GOTO Conditional statements While loops For loops   Console  Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering   File system  Drives and paths Drive providers Side-loading files   Cloud service  Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes   Hardware access  GPIO   Configuration  AUTOEXEC.">
 <meta name=author content="Julio Merino">
 <meta name=generator content="Hugo 0.92.1">
 <meta property="og:url" content="https://www.endbasic.dev/docs.html">
@@ -64,6 +64,7 @@
 <li><a href=#lang-comparison-ops>Comparison operators</a></li>
 <li><a href=#lang-logical-ops>Logical operators</a></li>
 <li><a href=#lang-expr>Expressions</a></li>
+<li><a href=#lang-goto>GOTO</a></li>
 <li><a href=#lang-if>Conditional statements</a></li>
 <li><a href=#lang-while>While loops</a></li>
 <li><a href=#lang-for>For loops</a></li>
@@ -388,7 +389,9 @@ HELP LB
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
 PRINT DTOI(RND() * 100.0) + 500 &lt; 550
 FALSE
-</code></pre></div><h2 id=lang-if>Conditional statements</h2>
+</code></pre></div><h2 id=lang-goto>GOTO</h2>
+<p><code>GOTO</code> is probably the most salient feature of a retro-looking BASIC interpreter&mldr; but unfortunately this is currently not supported due to the way the execution engine works. I have plans to add this and maybe even line numbers in a subsequent release, but for now you&rsquo;ll have to stick to structured programming.</p>
+<h2 id=lang-if>Conditional statements</h2>
 <p>EndBASIC supports conditional statements (<code>IF</code>) with zero or more alternate branches (<code>ELSE IF</code> and <code>ELSE</code>).</p>
 <p>Here is how the most simple construct looks like:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>IF</span><span class=w> </span><span class=il>3</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>5</span><span class=w> </span><span class=kr>THEN</span>
