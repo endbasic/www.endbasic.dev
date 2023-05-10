@@ -1,905 +1,374 @@
-<!doctype html><html lang=en xmlns:fb=http://ogp.me/ns/fb#>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta property="og:site_name" content="EndBASIC">
-<title>Documentation - EndBASIC</title>
-<meta property="og:title" content="Documentation - EndBASIC">
-<meta name=description content="Introduction  Launching the interpreter Writing your first program Loading and saving Getting help   Language basics  Case sensitivity Primitive types Arrays Operators Expressions GOTO and GOSUB Conditionals Loops Error handling Data blocks   Console  Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering   File system  Drives and paths Drive providers Side-loading files   Cloud service  Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes   Hardware access  GPIO   Configuration  AUTOEXEC.">
-<meta property="og:description" content="Introduction  Launching the interpreter Writing your first program Loading and saving Getting help   Language basics  Case sensitivity Primitive types Arrays Operators Expressions GOTO and GOSUB Conditionals Loops Error handling Data blocks   Console  Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering   File system  Drives and paths Drive providers Side-loading files   Cloud service  Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes   Hardware access  GPIO   Configuration  AUTOEXEC.">
-<meta name=author content="Julio Merino">
-<meta name=generator content="Hugo 0.92.1">
-<meta property="og:url" content="https://www.endbasic.dev/docs.html">
-<meta property="og:type" content="website">
-<link rel=canonical href=https://www.endbasic.dev/docs.html>
-<link rel=stylesheet href=/sass/main.min.9ec1f97927e519cf51a7780ec8e79b06b8cb00aa9c576d2a78046c95085f7fcc.css>
-<link rel=stylesheet href=/css/chroma.css>
-</head>
-<body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-<a class=navbar-brand href=/>EndBASIC</a>
+<!doctype html><html lang=en xmlns:fb=http://ogp.me/ns/fb#><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta property="og:site_name" content="EndBASIC"><title>Documentation - EndBASIC</title><meta property="og:title" content="Documentation - EndBASIC"><meta name=description content="Introduction Launching the interpreter Writing your first program Loading and saving Getting help Language basics Case sensitivity Primitive types Arrays Operators Expressions GOTO and GOSUB Conditionals Loops Error handling Data blocks Console Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering File system Drives and paths Drive providers Side-loading files Cloud service Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes Hardware access GPIO Configuration AUTOEXEC."><meta property="og:description" content="Introduction Launching the interpreter Writing your first program Loading and saving Getting help Language basics Case sensitivity Primitive types Arrays Operators Expressions GOTO and GOSUB Conditionals Loops Error handling Data blocks Console Text manipulation Interactive interfaces Rendering graphics Efficient graphics rendering File system Drives and paths Drive providers Side-loading files Cloud service Accessing public content Signing up Logging in Uploading a program Publishing a program Privacy and security notes Hardware access GPIO Configuration AUTOEXEC."><meta name=author content="Julio Merino"><meta name=generator content="Hugo 0.111.3"><meta property="og:url" content="https://www.endbasic.dev/docs.html"><meta property="og:type" content="website"><link rel=canonical href=https://www.endbasic.dev/docs.html><link rel=stylesheet href=/sass/main.min.8f2064ba272b7c6d873736df9339fac0cc0adecda647b5ec37df79904e1ea59f.css><link rel=stylesheet href=/css/chroma.css></head><body><nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top"><a class=navbar-brand href=/>EndBASIC</a>
 <button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarToggler aria-controls=navbarToggler aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse" id=navbarToggler>
-<ul class="navbar-nav mr-auto mt-2 mt-lg-0"><li class=nav-item>
-<a class=nav-link href=/about.html>About</a>
-</li><li class=nav-item>
-<a class=nav-link href=/gallery.html>Gallery</a>
-</li><li class=nav-item>
-<a class=nav-link href=/download.html>Download</a>
-</li><li class="nav-item active">
-<a class=nav-link href=/docs.html>Documentation</a>
-</li><li class=nav-item>
-<a class=nav-link href=/community.html>Community</a>
-</li><li class=nav-item>
-<a class=nav-link href=https://jmmv.dev/tags/endbasic/ target=_new>Blog</a>
-</li>
-</ul>
-</div>
-</nav>
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark bg-grid">
-<div class="p-lg-1 mx-auto my-1 text-white text-left">
-<h1 class="title display-4 font-weight-normal">Ready<br>Documentation&#9608;</h1>
-</div>
-</div>
-<article class=container>
-<nav id=TableOfContents>
-<ol>
-<li><a href=#intro>Introduction</a>
-<ol>
-<li><a href=#intro-launch>Launching the interpreter</a></li>
-<li><a href=#intro-first>Writing your first program</a></li>
-<li><a href=#intro-load-save>Loading and saving</a></li>
-<li><a href=#intro-help>Getting help</a></li>
-</ol>
-</li>
-<li><a href=#lang>Language basics</a>
-<ol>
-<li><a href=#lang-case>Case sensitivity</a></li>
-<li><a href=#lang-types>Primitive types</a></li>
-<li><a href=#lang-arrays>Arrays</a></li>
-<li><a href=#lang-ops>Operators</a></li>
-<li><a href=#lang-expr>Expressions</a></li>
-<li><a href=#lang-goto>GOTO and GOSUB</a></li>
-<li><a href=#lang-conditionals>Conditionals</a></li>
-<li><a href=#lang-loops>Loops</a></li>
-<li><a href=#lang-on-error>Error handling</a></li>
-<li><a href=#lang-data>Data blocks</a></li>
-</ol>
-</li>
-<li><a href=#console>Console</a>
-<ol>
-<li><a href=#console-text>Text manipulation</a></li>
-<li><a href=#console-inkey>Interactive interfaces</a></li>
-<li><a href=#console-gfx>Rendering graphics</a></li>
-<li><a href=#console-sync>Efficient graphics rendering</a></li>
-</ol>
-</li>
-<li><a href=#fs>File system</a>
-<ol>
-<li><a href=#fs-paths>Drives and paths</a></li>
-<li><a href=#fs-providers>Drive providers</a></li>
-<li><a href=#fs-side-loading>Side-loading files</a></li>
-</ol>
-</li>
-<li><a href=#cloud>Cloud service</a>
-<ol>
-<li><a href=#cloud-public>Accessing public content</a></li>
-<li><a href=#cloud-signup>Signing up</a></li>
-<li><a href=#cloud-login>Logging in</a></li>
-<li><a href=#cloud-upload>Uploading a program</a></li>
-<li><a href=#cloud-public-share>Publishing a program</a></li>
-<li><a href=#cloud-privacy>Privacy and security notes</a></li>
-</ol>
-</li>
-<li><a href=#hw>Hardware access</a>
-<ol>
-<li><a href=#hw-gpio>GPIO</a></li>
-</ol>
-</li>
-<li><a href=#config>Configuration</a>
-<ol>
-<li><a href=#config-autoexec>AUTOEXEC.BAS</a></li>
-</ol>
-</li>
-</ol>
-</nav>
-<h1 id=intro>Introduction</h1>
-<p>This page provides an overview of the EndBASIC programming language and environment. Most of this text is written in a tutorial-like style, guiding you to accomplish certain tasks. The text is not meant to teach you programming from the ground up, although that would be desirable considering what EndBASIC&rsquo;s goals are.</p>
-<h2 id=intro-launch>Launching the interpreter</h2>
-<p>EndBASIC is multi-platform and runs on the web and on almost all desktop operating systems, including macOS, Windows, and any Unix derivative such as FreeBSD or Linux. Most features exist in all builds, although there are a few exceptions.</p>
-<p>The easiest way to get started is via the web-based interpreter, which you can start by clicking on this button:</p>
-<blockquote>
-<a class="btn btn-primary btn-lg" href=https://repl.endbasic.dev/ target=_new>Launch interpreter</a>
-</blockquote>
-<p>If you prefer the desktop version, visit the <a href=/download.html>Download page</a> to fetch the right build for your system and follow the instructions provided there.</p>
-<p>As a teaser, note that if you end up trying out different versions of the interpreter, the easiest way to move files between them is to use the <a href=#cloud>file-sharing cloud service</a>.</p>
-<h2 id=intro-first>Writing your first program</h2>
-<p>To create your first program, open up the interpreter, type <code>EDIT</code> and press <code>Enter</code>. This will open up a full-screen text editor where you can start typing your first program. Within it, type the text below and press <code>Esc</code> to return to the command line:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>INPUT</span><span class=w> </span><span class=s2>&#34;What&#39;s your name&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>name$</span>
-<span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Hello,&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>name$</span>
-</code></pre></div><p>Once you are back in the command line, try using the <code>LIST</code> command to visualize that the program you typed is stored in the interpreter&rsquo;s memory, and then use the <code>RUN</code> command to launch your program:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-LIST
-INPUT &#34;What&#39;s your name&#34;; name$
-PRINT &#34;Hello,&#34;; name$
-Ready
-RUN
-What&#39;s your name? Julio
-Hello, Julio
-</code></pre></div><p>That&rsquo;s it! You have written and executed your first program!</p>
-<p>When the interpreter stops, all state changes made by the program are left untouched. This is useful to illustrate that the program and the interpreter are tightly coupled and helps troubleshoot problems in the program. In other words: any variables defined up to the point where the program stopped are still in memory, so if you type <code>PRINT name$</code> from the command line, you&rsquo;ll get back the name that you previously entered.</p>
-<p>Because of the side-effects that an executed program leaves behind, the <code>CLEAR</code> exists and lets you reset the interpreter to a clean slate while maintaining your program in memory. (Essentially, <code>RUN</code> does a <code>CLEAR</code> first to ensure that your program isn&rsquo;t impacted by previous state.) There is also a command called <code>NEW</code> which does the same as <code>CLEAR</code> <em>and also</em> clears the program stored in memory.</p>
-<p>To iterate on the program, you can go back to the editor by typing <code>EDIT</code> again, modifying your previous code.</p>
-<h2 id=intro-load-save>Loading and saving</h2>
-<p>In the previous section, you wrote your first program&mdash;and I suppose you don&rsquo;t want to lose such a precious creation! To avoid that, you can save your program to disk with the <code>SAVE</code> command, verify that it was saved via the <code>DIR</code> command, and load it back into memory via the <code>LOAD</code> command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>SAVE &#34;hello.bas&#34;
-Saved as LOCAL:hello.bas
-Ready
-DIR
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarToggler><ul class="navbar-nav mr-auto mt-2 mt-lg-0"><li class=nav-item><a class=nav-link href=/about.html>About</a></li><li class=nav-item><a class=nav-link href=/gallery.html>Gallery</a></li><li class=nav-item><a class=nav-link href=/download.html>Download</a></li><li class="nav-item active"><a class=nav-link href=/docs.html>Documentation</a></li><li class=nav-item><a class=nav-link href=/community.html>Community</a></li><li class=nav-item><a class=nav-link href=https://jmmv.dev/tags/endbasic/ target=_new>Blog</a></li></ul></div></nav><div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark bg-grid"><div class="p-lg-1 mx-auto my-1 text-white text-left"><h1 class="title display-4 font-weight-normal">Ready<br>Documentation&#9608;</h1></div></div><article class=container><nav id=TableOfContents><ol><li><a href=#intro>Introduction</a><ol><li><a href=#intro-launch>Launching the interpreter</a></li><li><a href=#intro-first>Writing your first program</a></li><li><a href=#intro-load-save>Loading and saving</a></li><li><a href=#intro-help>Getting help</a></li></ol></li><li><a href=#lang>Language basics</a><ol><li><a href=#lang-case>Case sensitivity</a></li><li><a href=#lang-types>Primitive types</a></li><li><a href=#lang-arrays>Arrays</a></li><li><a href=#lang-ops>Operators</a></li><li><a href=#lang-expr>Expressions</a></li><li><a href=#lang-goto>GOTO and GOSUB</a></li><li><a href=#lang-conditionals>Conditionals</a></li><li><a href=#lang-loops>Loops</a></li><li><a href=#lang-on-error>Error handling</a></li><li><a href=#lang-data>Data blocks</a></li></ol></li><li><a href=#console>Console</a><ol><li><a href=#console-text>Text manipulation</a></li><li><a href=#console-inkey>Interactive interfaces</a></li><li><a href=#console-gfx>Rendering graphics</a></li><li><a href=#console-sync>Efficient graphics rendering</a></li></ol></li><li><a href=#fs>File system</a><ol><li><a href=#fs-paths>Drives and paths</a></li><li><a href=#fs-providers>Drive providers</a></li><li><a href=#fs-side-loading>Side-loading files</a></li></ol></li><li><a href=#cloud>Cloud service</a><ol><li><a href=#cloud-public>Accessing public content</a></li><li><a href=#cloud-signup>Signing up</a></li><li><a href=#cloud-login>Logging in</a></li><li><a href=#cloud-upload>Uploading a program</a></li><li><a href=#cloud-public-share>Publishing a program</a></li><li><a href=#cloud-privacy>Privacy and security notes</a></li></ol></li><li><a href=#hw>Hardware access</a><ol><li><a href=#hw-gpio>GPIO</a></li></ol></li><li><a href=#config>Configuration</a><ol><li><a href=#config-autoexec>AUTOEXEC.BAS</a></li></ol></li></ol></nav><h1 id=intro>Introduction</h1><p>This page provides an overview of the EndBASIC programming language and environment. Most of this text is written in a tutorial-like style, guiding you to accomplish certain tasks. The text is not meant to teach you programming from the ground up, although that would be desirable considering what EndBASIC&rsquo;s goals are.</p><h2 id=intro-launch>Launching the interpreter</h2><p>EndBASIC is multi-platform and runs on the web and on almost all desktop operating systems, including macOS, Windows, and any Unix derivative such as FreeBSD or Linux. Most features exist in all builds, although there are a few exceptions.</p><p>The easiest way to get started is via the web-based interpreter, which you can start by clicking on this button:</p><blockquote><a class="btn btn-primary btn-lg" href=https://repl.endbasic.dev/ target=_new>Launch interpreter</a></blockquote><p>If you prefer the desktop version, visit the <a href=/download.html>Download page</a> to fetch the right build for your system and follow the instructions provided there.</p><p>As a teaser, note that if you end up trying out different versions of the interpreter, the easiest way to move files between them is to use the <a href=#cloud>file-sharing cloud service</a>.</p><h2 id=intro-first>Writing your first program</h2><p>To create your first program, open up the interpreter, type <code>EDIT</code> and press <code>Enter</code>. This will open up a full-screen text editor where you can start typing your first program. Within it, type the text below and press <code>Esc</code> to return to the command line:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>INPUT</span><span class=w> </span><span class=s2>&#34;What&#39;s your name&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>name$</span>
+</span></span><span class=line><span class=cl><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Hello,&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>name$</span>
+</span></span></code></pre></div><p>Once you are back in the command line, try using the <code>LIST</code> command to visualize that the program you typed is stored in the interpreter&rsquo;s memory, and then use the <code>RUN</code> command to launch your program:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>LIST
+</span></span><span class=line><span class=cl>INPUT &#34;What&#39;s your name&#34;; name$
+</span></span><span class=line><span class=cl>PRINT &#34;Hello,&#34;; name$
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>RUN
+</span></span><span class=line><span class=cl>What&#39;s your name? Julio
+</span></span><span class=line><span class=cl>Hello, Julio
+</span></span></code></pre></div><p>That&rsquo;s it! You have written and executed your first program!</p><p>When the interpreter stops, all state changes made by the program are left untouched. This is useful to illustrate that the program and the interpreter are tightly coupled and helps troubleshoot problems in the program. In other words: any variables defined up to the point where the program stopped are still in memory, so if you type <code>PRINT name$</code> from the command line, you&rsquo;ll get back the name that you previously entered.</p><p>Because of the side-effects that an executed program leaves behind, the <code>CLEAR</code> exists and lets you reset the interpreter to a clean slate while maintaining your program in memory. (Essentially, <code>RUN</code> does a <code>CLEAR</code> first to ensure that your program isn&rsquo;t impacted by previous state.) There is also a command called <code>NEW</code> which does the same as <code>CLEAR</code> <em>and also</em> clears the program stored in memory.</p><p>To iterate on the program, you can go back to the editor by typing <code>EDIT</code> again, modifying your previous code.</p><h2 id=intro-load-save>Loading and saving</h2><p>In the previous section, you wrote your first program&mdash;and I suppose you don&rsquo;t want to lose such a precious creation! To avoid that, you can save your program to disk with the <code>SAVE</code> command, verify that it was saved via the <code>DIR</code> command, and load it back into memory via the <code>LOAD</code> command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>SAVE &#34;hello.bas&#34;
+</span></span><span class=line><span class=cl>Saved as LOCAL:hello.bas
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>DIR
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Directory of LOCAL:/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Modified              Size    Name
+</span></span><span class=line><span class=cl>    2022-06-03 13:08        55    hello.bas
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    1 file(s), 55 bytes
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>LOAD &#34;hello.bas&#34;
+</span></span></code></pre></div><p>Once you have given the program a name, the interpreter will keep track of it until you exit or discard the currently-loaded program via the <code>NEW</code> command. This means that any subsequent <code>SAVE</code> operation can be done without re-entering the program name: simply typing <code>SAVE</code> will update the previously-created file with the new contents.</p><p>EndBASIC will try to prevent you from losing your program. For example, if you try to drop the current program with <code>NEW</code> or exit the interpreter before saving your program, EndBASIC will prompt you to confirm your actions.</p><p>That said, get in the habit of saving your program frequently. If your program gets stuck, you may need to reboot the interpreter and there is no protection against that.</p><h2 id=intro-help>Getting help</h2><p>EndBASIC is designed to be self-documenting, and this document does not intend to provide a full reference manual to EndBASIC because this information is already built into the interpreter.</p><p>To access the built-in reference documentation, type <code>HELP</code> within the interpreter, which will greet you with a message like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>HELP
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    This is EndBASIC 0.9.99.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Project page at &lt;https://www.endbasic.dev/&gt;
+</span></span><span class=line><span class=cl>    License Apache Version 2.0 &lt;http://www.apache.org/licenses/LICENSE-2.0&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Top-level help topics
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    &gt;&gt; Array functions
+</span></span><span class=line><span class=cl>    &gt;&gt; Cloud access
+</span></span><span class=line><span class=cl>    &gt;&gt; Console
+</span></span><span class=line><span class=cl>    &gt;&gt; Data management
+</span></span><span class=line><span class=cl>    &gt;&gt; File system
+</span></span><span class=line><span class=cl>    &gt;&gt; Graphics
+</span></span><span class=line><span class=cl>    &gt;&gt; Hardware interface
+</span></span><span class=line><span class=cl>    &gt;&gt; Interpreter
+</span></span><span class=line><span class=cl>    &gt;&gt; Language reference
+</span></span><span class=line><span class=cl>    &gt;&gt; Numerical functions
+</span></span><span class=line><span class=cl>    &gt;&gt; Stored program
+</span></span><span class=line><span class=cl>    &gt;&gt; String and character functions
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Type HELP followed by the name of a topic for details.
+</span></span><span class=line><span class=cl>    Type HELP &#34;HELP&#34; for details on how to specify topic names.
+</span></span><span class=line><span class=cl>    Type LOAD &#34;DEMOS:/TOUR.BAS&#34;: RUN for a guided tour.
+</span></span><span class=line><span class=cl>    Type END or press CTRL+D to exit.
+</span></span></code></pre></div><p>This main help page shows you the available help topics. To get extra help, you need to provide one of those topics to the <code>HELP</code> command. Topic matching is done on a prefix basis, so you can type only part of the topic name. For example, to access the <strong>Array functions</strong> topic:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>HELP &#34;ARR&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Array functions
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    &gt;&gt; LBOUND%    Returns the lower bound for the given dimension of the array.
+</span></span><span class=line><span class=cl>    &gt;&gt; UBOUND%    Returns the upper bound for the given dimension of the array.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Type HELP followed by the name of a symbol for details.
+</span></span></code></pre></div><p>And from there, you can also obtain extra information on the subtopics. For example, to get details on the <code>LBOUND%</code> function:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>HELP &#34;LB&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    LBOUND%(array[, dimension%])
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Returns the lower bound for the given dimension of the array.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    The lower bound is the smallest available subscript that can be
+</span></span><span class=line><span class=cl>    provided to array indexing operations.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    For one-dimensional arrays, the dimension% is optional.  For
+</span></span><span class=line><span class=cl>    multi-dimensional arrays, the dimension% is a 1-indexed integer.
+</span></span></code></pre></div><p>Pay special attention to the <code>LANG</code> topic, which gives you access to documentation on the language itself. This document replicates some of that information.</p><h1 id=lang>Language basics</h1><p>EndBASIC is an interpreter for a BASIC-like language and is inspired by Amstrad’s Locomotive BASIC 1.1 and Microsoft’s QuickBASIC 4.5. The language itself includes many of the features that you may expect from BASIC, but it can also feel lacking in some scenarios. Please let me know if you find yourself needing a new language construct or new standard library features.</p><h2 id=lang-case>Case sensitivity</h2><p>EndBASIC is case-insensitive. It is common to write BASIC code all in uppercase, but this is not a requirement. The convention in the EndBASIC interpreter, the documentation, and example code is to write all keywords in uppercase and all identifiers (variable names) in lowercase.</p><p>As a tip, note that uppercase keywords make the code look dated because all modern programming languages use <code>lower_snake_case</code> (Rust, C++), <code>camelCase</code> (Java, Python, Go) or <code>PascalCase</code> (C#, Go). Writing your EndBASIC code in lowercase will make it look more modern.</p><p>For extra trivia, note that the convention in Visual Basic is to use <code>CamelCase</code>.</p><h2 id=lang-types>Primitive types</h2><p>EndBASIC is a strongly typed language. Variables are assigned a type at definition time and their type remains immutable throughout their existence. This type is represented as a single-character type annotation appended to the variable names. The type annotation is optional, in which case EndBASIC will infer types, but it must match the type of the variable if present.</p><p>Similarly to the note on case sensitivity, the convention in EndBASIC is to almost-always show type annotations next to variable names, but this makes the code look dated. For a more modern look, avoid type annotations unless explicitly required.</p><p>The following types are supported:</p><table><thead><tr><th>Type</th><th>Annotation</th><th>Default</th><th>Values</th></tr></thead><tbody><tr><td>Boolean</td><td><code>?</code></td><td><code>FALSE</code></td><td><code>TRUE</code> and <code>FALSE</code></td></tr><tr><td>Double floating point</td><td><code>#</code></td><td><code>0.0</code></td><td>Numbers with a period</td></tr><tr><td>32-bit signed integers</td><td><code>%</code></td><td><code>0</code></td><td>Numbers from -2,147,483,648 to 2,147,483,647</td></tr><tr><td>Strings</td><td><code>$</code></td><td><code>""</code></td><td>Any text enclosed in double-quotes</td></tr></tbody></table><p>Integer literals can also be specified in base form:</p><table><thead><tr><th>Base</th><th>Integer literals</th></tr></thead><tbody><tr><td>Binary</td><td><code>&amp;b0101</code> or <code>&amp;b_0101</code></td></tr><tr><td>Octal</td><td><code>&amp;o750</code> or <code>&amp;o_750</code></td></tr><tr><td>Decimal</td><td><code>789</code>, <code>&amp;d789</code> or <code>&amp;d_789</code></td></tr><tr><td>Hexadecimal</td><td><code>&amp;xa10f</code> or <code>&amp;x_a10f</code></td></tr></tbody></table><p>New variables can be defined <em>and</em> declared at assignment time, like in these examples:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=vg>bool_var</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>TRUE</span>
+</span></span><span class=line><span class=cl><span class=vg>double_var#</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mf>5.0</span>
+</span></span><span class=line><span class=cl><span class=vg>integer_var</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>5</span>
+</span></span><span class=line><span class=cl><span class=vg>string_var$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&#34;Hello, world!&#34;</span>
+</span></span></code></pre></div><p>Or they can be declared and set to their default values with the <code>DIM</code> command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kd>DIM</span><span class=w> </span><span class=vg>b</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=vg>BOOLEAN</span><span class=w> </span><span class=c1>&#39; b? is set to FALSE.</span>
+</span></span><span class=line><span class=cl><span class=kd>DIM</span><span class=w> </span><span class=vg>d</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>DOUBLE</span><span class=w> </span><span class=c1>&#39; d# is set to 0.0.</span>
+</span></span><span class=line><span class=cl><span class=kd>DIM</span><span class=w> </span><span class=vg>i</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>INTEGER</span><span class=w> </span><span class=c1>&#39; i% is set to 0.</span>
+</span></span><span class=line><span class=cl><span class=kd>DIM</span><span class=w> </span><span class=vg>s</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>STRING</span><span class=w> </span><span class=c1>&#39; s$ is set to &#34;&#34;.</span>
+</span></span></code></pre></div><h2 id=lang-arrays>Arrays</h2><p>EndBASIC supports multidimensional arrays. Arrays are represented as contiguous blocks of memory in row-wise order and all values in the array must be of the same type.</p><p>Arrays must be defined with the <code>DIM</code> command and are later accessed using parenthesis (which is unlike most common languages today, which use square brackets for indexing):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=c1>&#39; Define a 2-dimensional array (aka matrix) with 5 rows and 3 columns.</span>
+</span></span><span class=line><span class=cl><span class=kd>DIM</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>3</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>INTEGER</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>`</span><span class=w> </span><span class=vg>Assign</span><span class=w> </span><span class=vg>and</span><span class=w> </span><span class=vg>access</span><span class=w> </span><span class=vg>two</span><span class=w> </span><span class=vg>different</span><span class=w> </span><span class=vg>positions</span><span class=o>.</span>
+</span></span><span class=line><span class=cl><span class=vg>arr</span><span class=p>(</span><span class=il>3</span><span class=p>,</span><span class=w> </span><span class=il>2</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>12345</span>
+</span></span><span class=line><span class=cl><span class=kr>PRINT</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=il>1</span><span class=p>,</span><span class=w> </span><span class=il>1</span><span class=p>)</span>
+</span></span></code></pre></div><p>Arrays are 0-indexed, which matches QuickBASIC and modern programming practices. There is no support for <code>OPTION BASE</code> nor to specify the lower bound of an array to change this behavior. This might change though, so you are encouraged to use <code>LBOUND%</code> and <code>UBOUND%</code> when iterating over arrays to make your code future-proof:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kd>DIM</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=il>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kr>LBOUND</span><span class=o>%</span><span class=p>(</span><span class=vg>arr</span><span class=p>)</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=kr>UBOUND</span><span class=o>%</span><span class=p>(</span><span class=vg>arr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=p>,</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=vg>i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>NEXT</span>
+</span></span></code></pre></div><h2 id=lang-ops>Operators</h2><h3 id=lang-arithmetic-ops>Arithmetic operators</h3><p>EndBASIC supports the following arithmetic operators:</p><table><thead><tr><th>Expression</th><th>Meaning</th></tr></thead><tbody><tr><td><code>a + b</code></td><td>Addition</td></tr><tr><td><code>a - b</code></td><td>Subtraction</td></tr><tr><td><code>a * b</code></td><td>Multiplication</td></tr><tr><td><code>a / b</code></td><td>Division (integer or floating point depending on variable types)</td></tr><tr><td><code>a MOD b</code></td><td>Modulo operation (integer division remainder)</td></tr><tr><td><code>a ^ b</code></td><td>Exponent operation</td></tr><tr><td><code>-a</code></td><td>Sign flip</td></tr></tbody></table><p>Integers are automatically promoted to doubles when they appear in a floating point expression, and floats are rounded to the closest integer (3.4 becomes 3, but 3.5 becomes 4) when they appear in a context that requires integers.</p><h3 id=lang-comparison-ops>Comparison operators</h3><p>EndBASIC supports the following comparison operators:</p><table><thead><tr><th>Expression</th><th>Meaning</th></tr></thead><tbody><tr><td><code>a = b</code></td><td>Equality comparison</td></tr><tr><td><code>a &lt;> b</code></td><td>Inequality comparison</td></tr><tr><td><code>a &lt; b</code></td><td>Less-than comparison</td></tr><tr><td><code>a &lt;= b</code></td><td>Less-than or equal to comparison</td></tr><tr><td><code>a > b</code></td><td>Greater-than comparison</td></tr><tr><td><code>a >= b</code></td><td>Greater-than or equal to comparison</td></tr></tbody></table><p>Integers are automatically promoted to doubles when they appear in a floating point expression, and floats are rounded to the closest integer (3.4 becomes 3, but 3.5 becomes 4) when they appear in a context that requires integers.</p><h3 id=lang-logical-ops>Logical and bitwise operators</h3><p>EndBASIC supports the following logical and bitwise operators:</p><table><thead><tr><th>Expression</th><th>Meaning</th></tr></thead><tbody><tr><td><code>a AND b</code></td><td>Logical or bitwise and</td></tr><tr><td><code>a OR b</code></td><td>Logical or bitwise or</td></tr><tr><td><code>a XOR b</code></td><td>Logical or bitwise exclusive or</td></tr><tr><td><code>NOT a</code></td><td>Logical or bitwise negation</td></tr><tr><td><code>a &lt;&lt; b</code></td><td>Bitwise integer left shift</td></tr><tr><td><code>a >> b</code></td><td>Bitwise integer right shift (signed)</td></tr></tbody></table><p>When the operands to these operators are booleans, they perform logical comparisons. There is no automatic coercing of other types into booleans, and there will not be. In particular, this means that something like <code>NOT a</code> in a boolean context is invalid unless <code>a</code> is a boolean.</p><p>When the operands to these operators are integers, they perform bitwise operations. The result of these operations are integers, so they cannot be directly used in boolean context. For example, if you are trying to test if a bit is set, you will have to compare the outcome of a bitwise operation against an integer:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>IF</span><span class=w> </span><span class=p>(</span><span class=vg>a</span><span class=w> </span><span class=ow>AND</span><span class=w> </span><span class=o>&amp;</span><span class=vg>b_0001</span><span class=p>)</span><span class=w> </span><span class=o>&lt;&gt;</span><span class=w> </span><span class=il>0</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;a has the right-most bit set&#34;</span>
+</span></span></code></pre></div><h2 id=lang-expr>Expressions</h2><p>All of the previously-described operators can be combined in complex expressions. The following ordering applies when evaluating expressions:</p><ol><li>Function calls and array references.</li><li>Parenthetical sub-expressions.</li><li>Arithmetical sign flip and logical negation.</li><li>Arithmetical multiplication, division and modulo.</li><li>Arithmetical addition and subtration.</li><li>Comparisons.</li><li>Logical/bitwise and, or and exclusive or.</li></ol><p>Operators of the same priority are applied left-to-right. For example, in <code>3 - 4 + 5</code>, where both addition and subtraction have the same priority ordering, the subtraction will be done before the addition (as you would expect).</p><p>As an example, here is an expression to compute a random number between 500 and 600 and check whether the resulting number is within 500 to 550:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>PRINT INT(RND(1) * 100.0) + 500 &lt; 550
+</span></span><span class=line><span class=cl>FALSE
+</span></span></code></pre></div><h2 id=lang-goto>GOTO and GOSUB</h2><p>EndBASIC supports unconditional jumps to labels and explicitly-assigned line numbers, just like QuickBASIC supports. Labels are words prefixed by the <code>@</code> sign that appear on a line of their own and line numbers prefix statements just like they do in traditional BASIC implementations.</p><p>Here are some examples:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>GOTO</span><span class=w> </span><span class=err>@</span><span class=vg>first</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>@</span><span class=vg>first</span>
+</span></span><span class=line><span class=cl><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;first&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>GOTO</span><span class=w> </span><span class=err>@</span><span class=vg>second</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>@</span><span class=nl>second:</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;second&#34;</span><span class=o>:</span><span class=w> </span><span class=kr>GOTO</span><span class=w> </span><span class=nl>300</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nl>300</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;third&#34;</span>
+</span></span></code></pre></div><p>The <code>@</code> prefix for label names is an EndBASIC-specific artifact required to resolve parsing ambiguities. This requirement might be relaxed in the future.</p><p>EndBASIC does not yet support defining custom functions nor procedures, but it supports <code>GOSUB</code>, which provides an unconditional jump to a target location (using the same syntax as <code>GOTO</code>) and the ability to return to the call site via <code>RETURN</code>.</p><p>You can use this feature to implementing rudimentary procedures and functions. For example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=vg>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>3</span><span class=o>:</span><span class=w> </span><span class=vg>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>4</span><span class=o>:</span><span class=w> </span><span class=kr>GOSUB</span><span class=w> </span><span class=err>@</span><span class=vg>add</span>
+</span></span><span class=line><span class=cl><span class=kr>PRINT</span><span class=w> </span><span class=vg>result</span>
+</span></span><span class=line><span class=cl><span class=kr>END</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>@</span><span class=vg>add</span>
+</span></span><span class=line><span class=cl><span class=vg>result</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>x</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=vg>y</span>
+</span></span><span class=line><span class=cl><span class=kr>RETURN</span>
+</span></span></code></pre></div><h2 id=lang-conditionals>Conditionals</h2><h3 id=lang-if>If statements</h3><p>EndBASIC supports conditional statements (<code>IF</code>) with zero or more alternate branches (<code>ELSE IF</code> and <code>ELSE</code>).</p><p>Here is how the most simple construct looks like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>IF</span><span class=w> </span><span class=il>3</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>5</span><span class=w> </span><span class=kr>THEN</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Three is less than five&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>END</span><span class=w> </span><span class=kr>IF</span>
+</span></span></code></pre></div><p>Here is a more advanced construct with multiple alternate branches:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=vg>discount#</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kr>RND</span><span class=p>(</span><span class=il>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>IF</span><span class=w> </span><span class=vg>discount#</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mf>0.2</span><span class=w> </span><span class=kr>THEN</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Meh, a small discount.&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>ELSEIF</span><span class=w> </span><span class=vg>discount#</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mf>0.7</span><span class=w> </span><span class=kr>THEN</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Nice, a good discount!&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>ELSE</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Wow, an amazing discount!&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>END</span><span class=w> </span><span class=kr>IF</span>
+</span></span></code></pre></div><p>One-line if statements are also supported and have these forms:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>IF</span><span class=w> </span><span class=il>3</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>5</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Less&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>IF</span><span class=w> </span><span class=il>3</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>5</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Less&#34;</span><span class=w> </span><span class=k>ELSE</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;More&#34;</span>
+</span></span></code></pre></div><h3 id=lang-select>Multiple choice</h3><p>Other than for <code>IF</code>/<code>ELSE IF</code> conditionals, EndBASIC also supports to more advanced <code>SELECT CASE</code> multiple choice statement. Here is how it looks like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>INPUT</span><span class=w> </span><span class=s2>&#34;Enter a number&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>a</span>
+</span></span><span class=line><span class=cl><span class=kr>SELECT CASE</span><span class=w> </span><span class=vg>a</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=il>1</span><span class=p>,</span><span class=w> </span><span class=il>3</span><span class=p>,</span><span class=w> </span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>7</span><span class=p>,</span><span class=w> </span><span class=il>9</span>
+</span></span><span class=line><span class=cl><span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Odd&#34;</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>2</span><span class=p>,</span><span class=w> </span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>6</span><span class=p>,</span><span class=w> </span><span class=il>8</span>
+</span></span><span class=line><span class=cl><span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Even&#34;</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=k>IS</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>10</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=il>100</span>
+</span></span><span class=line><span class=cl><span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Other cases&#34;</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=k>ELSE</span>
+</span></span><span class=line><span class=cl><span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Fallback&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>END</span><span class=w> </span><span class=kr>SELECT</span>
+</span></span></code></pre></div><h2 id=lang-loops>Loops</h2><p>EndBASIC supports a wide variety of loop types.</p><h3 id=lang-while>While loops</h3><p>While loops are supported via the <code>WHILE</code> and <code>WEND</code> keyword. Here is how they look like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=vg>n</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
+</span></span><span class=line><span class=cl><span class=kr>WHILE</span><span class=w> </span><span class=vg>n</span><span class=o>%</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=ow>OR</span><span class=w> </span><span class=vg>n</span><span class=o>%</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=il>10</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>INPUT</span><span class=w> </span><span class=s2>&#34;Enter a number between 1 and 10: &#34;</span><span class=p>,</span><span class=w> </span><span class=vg>n</span><span class=o>%</span>
+</span></span><span class=line><span class=cl><span class=kr>WEND</span>
+</span></span></code></pre></div><h3 id=lang-for>For loops</h3><p>For loops are supported via the <code>FOR</code> keyword. For loops iterate over an inclusive range of integers with a default step of 1. For example, the following loop will print numbers 1, 2, 3, 4 and 5:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=il>5</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
+</span></span><span class=line><span class=cl><span class=kr>NEXT</span>
+</span></span></code></pre></div><p>The stepping through the range is configurable via the <code>STEP</code> keyword, and this can be both positive and negative. For example, the following loop will print the numbers 10, 8, 6, 4 and 2:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>10</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=k>STEP</span><span class=w> </span><span class=il>-2</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
+</span></span><span class=line><span class=cl><span class=kr>NEXT</span>
+</span></span></code></pre></div><p>Both the beginning and end of the range can be arbitrary integer expressions. However, the <code>STEP</code> argument must be an integer literal.</p><h3 id=lang-do>Do loops</h3><p>Do loops are the most generic type of loop, as they can specify until/while conditions at the start or at the end, or they may omit all conditions to specify an infinite loop.</p><p>Here are some examples:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>DO</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Infinite loop&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>LOOP</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>DO</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
+</span></span><span class=line><span class=cl><span class=kr>LOOP</span><span class=w> </span><span class=k>UNTIL</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>10</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>DO</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
+</span></span><span class=line><span class=cl><span class=kr>LOOP</span><span class=w> </span><span class=kr>WHILE</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>10</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
+</span></span><span class=line><span class=cl><span class=kr>DO</span><span class=w> </span><span class=k>UNTIL</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>10</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
+</span></span><span class=line><span class=cl><span class=kr>LOOP</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
+</span></span><span class=line><span class=cl><span class=kr>DO</span><span class=w> </span><span class=kr>WHILE</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>10</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
+</span></span><span class=line><span class=cl><span class=kr>LOOP</span>
+</span></span></code></pre></div><p>The <code>EXIT DO</code> statement can be used to terminate a <code>DO</code> loop.</p><h2 id=lang-on-error>Error handling</h2><p>Certain errors can be caught and handled programmatically, such as when trying to perform graphical operations on a non-graphical console. This can be achieved with the <code>ON ERROR</code> statement, which configures what to do whenever an error arises. The following options are available:</p><ul><li><p><code>ON ERROR GOTO 0</code>: Restores the default error handler, which terminates the program upon the next error that arises.</p></li><li><p><code>ON ERROR GOTO @label</code>: Continues execution at <code>@label</code> when an error happens.</p></li><li><p><code>ON ERROR RESUME NEXT</code>: Continues execution at the next statement when an error happens.</p></li></ul><p>The <code>ERRMSG</code> function returns the textual representation of the last error that was caught.</p><h2 id=lang-data>Data blocks</h2><p>A program can specify data values with the <code>DATA</code> statement. These data values can be defined anywhere in the program and can be extracted later on via the <code>READ</code> statement. Here is an example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kd>DATA</span><span class=w> </span><span class=il>1</span><span class=p>,</span><span class=w> </span><span class=il>3</span><span class=p>,</span><span class=w> </span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>7</span><span class=p>,</span><span class=w> </span><span class=il>9</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>DO</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>READ</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>IF</span><span class=w> </span><span class=vg>i</span><span class=o>%</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>0</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>EXIT</span><span class=w> </span><span class=kr>DO</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
+</span></span><span class=line><span class=cl><span class=kr>LOOP</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>DATA</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>2</span><span class=p>,</span><span class=w> </span><span class=il>4</span><span class=p>,</span><span class=w> </span><span class=il>8</span><span class=p>,</span><span class=w> </span><span class=il>-1</span>
+</span></span></code></pre></div><h1 id=console>Console</h1><p>The EndBASIC console is a hybrid console that offers overlapping textl <em>and</em> graphics. As such, the console exposes two coordinate systems: commands that deal with text use character-based coordinates, and commands that deal with graphics use pixel-based coordinates. Both coordinate systems are 0-indexed and start at the top-left corner of the console.</p><p>The graphical console is available by default in the web version of EndBASIC.</p><p>Desktop builds have support for the graphical console as well, but they must be built with SDL support. All prebuilt binaries in the <a href=/download.html>Download</a> section have SDL support. Note, however, that to launch the desktop version of EndBASIC with graphics support, you will have to use a command like these:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>endbasic --console=graphics             # Default settings.
+</span></span><span class=line><span class=cl>endbasic --console=graphics:1024x768    # Specific resolution.
+</span></span><span class=line><span class=cl>endbasic --console=graphics:1920x1080fs # Specific resolution, full screen.
+</span></span></code></pre></div><h2 id=console-text>Text manipulation</h2><p>The EndBASIC text console provides sufficient features to build simple text-based interactive interfaces. These include changing colors, moving the cursor around, and waiting for key presses.</p><p>To get started, you can play with the <code>CLS</code> command to clear the screen, the <code>COLOR</code> command to set the foreground and/or background colors of the text, and the <code>LOCATE</code> command to move the cursor to a new position. Note that <code>LOCATE</code> on its own is useless unless it is immediately followed by a <code>PRINT</code> invocation.</p><p>To experience these features, type the following string of commands in the console and press Enter:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>COLOR</span><span class=w> </span><span class=il>15</span><span class=p>,</span><span class=w> </span><span class=il>12</span><span class=o>:</span><span class=w> </span><span class=kr>CLS</span><span class=o>:</span><span class=w> </span><span class=kr>LOCATE</span><span class=w> </span><span class=il>10</span><span class=p>,</span><span class=w> </span><span class=il>10</span><span class=o>:</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Hello&#34;</span><span class=o>:</span><span class=w> </span><span class=kr>LOCATE</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>15</span>
+</span></span></code></pre></div><h2 id=console-inkey>Interactive interfaces</h2><p>To build any kind of interactive interface, be it textual or graphical, you will need to wait for key presses. The <code>INPUT</code> command is insufficient for this because it waits for a full line of input. But we can use the <code>INKEY</code> function to poll the keyboard for an input.</p><p>For example, see this code to build a loop that waits for a key press and then reacts to it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Press keys to get feedback, or ESC to exit&#34;</span>
+</span></span><span class=line><span class=cl><span class=vg>k$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>WHILE</span><span class=w> </span><span class=vg>k$</span><span class=w> </span><span class=o>&lt;&gt;</span><span class=w> </span><span class=s2>&#34;ESC&#34;</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>k$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>INKEY</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>IF</span><span class=w> </span><span class=vg>k$</span><span class=w> </span><span class=o>&lt;&gt;</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w> </span><span class=kr>THEN</span>
+</span></span><span class=line><span class=cl><span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;You pressed&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>k$</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>END</span><span class=w> </span><span class=kr>IF</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=mf>0.01</span>
+</span></span><span class=line><span class=cl><span class=kr>WEND</span>
+</span></span></code></pre></div><h2 id=console-gfx>Rendering graphics</h2><p>A distinctive feature of EndBASIC is its support for graphics and text in the same console. You can start rendering graphics right from the command line, without having to understand how two separate windows interact with each other or without changing modes.</p><p>To get started, play with the <code>GFX_LINE</code> or <code>GFX_RECT</code> commands:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=vg>GFX_LINE</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=il>100</span>
+</span></span><span class=line><span class=cl><span class=vg>GFX_RECT</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=il>300</span><span class=p>,</span><span class=w> </span><span class=il>300</span>
+</span></span></code></pre></div><p>Remember that you can access detailed reference information for all available commands within the graphics category by typing <code>HELP "GRAPHICS"</code>.</p><h2 id=console-sync>Efficient graphics rendering</h2><p>Drawing occasional graphics from the console by typing individual commands is a great way of exploring what&rsquo;s available and understanding how the computer reacts to code, but rendering graphics in this manner is not very efficient: every drawing operation will be flushed to the video card as soon as it is executed, and this is a slow process.</p><p>To draw animations in an efficient manner, you must explicitly control when the console&rsquo;s contents are sent to the screen: in other words, you need to control when every video sync operation happens.</p><p>The general idea is that your program needs to render everything first &ldquo;in memory&rdquo; and then tell the video driver to paint the results. This can be accomplished via the <code>GFX_SYNC</code> command, which allows us to enable or disable automatic video flushing, and to explicitly flush the video.</p><p>Here is a sample program that renders an animation. Pay attention to the way the calls to the <code>GFX_SYNC</code> are done:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=c1>&#39; Disable automatic video syncing.</span>
+</span></span><span class=line><span class=cl><span class=vg>GFX_SYNC</span><span class=w> </span><span class=vg>FALSE</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>&#39; Loop until any key is pressed.</span>
+</span></span><span class=line><span class=cl><span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
+</span></span><span class=line><span class=cl><span class=vg>c</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
+</span></span><span class=line><span class=cl><span class=kr>WHILE</span><span class=w> </span><span class=vg>INKEY$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>&#39; Clear the screen and render the current frame.</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>CLS</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>COLOR</span><span class=w> </span><span class=vg>c</span><span class=o>%</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>GFX_RECTF</span><span class=w> </span><span class=vg>x</span><span class=o>%</span><span class=p>,</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>10</span><span class=p>,</span><span class=w> </span><span class=il>110</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>&#39; Update positions and colors for the next frame.</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>c</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=vg>c</span><span class=o>%</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span><span class=p>)</span><span class=w> </span><span class=k>MOD</span><span class=w> </span><span class=il>15</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>5</span><span class=p>)</span><span class=w> </span><span class=k>MOD</span><span class=w> </span><span class=il>500</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>&#39; Flush the rendered frame to the screen.</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>GFX_SYNC</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>&#39; Pause until the next frame.</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=mf>0.01</span>
+</span></span><span class=line><span class=cl><span class=kr>WEND</span>
+</span></span><span class=line><span class=cl><span class=kr>CLS</span>
+</span></span><span class=line><span class=cl><span class=kr>COLOR</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>&#39; Enable automatic video syncing.</span>
+</span></span><span class=line><span class=cl><span class=vg>GFX_SYNC</span><span class=w> </span><span class=vg>TRUE</span>
+</span></span></code></pre></div><h1 id=fs>File system</h1><p>EndBASIC offers a DOS-like interface to access and manipulate files.</p><p>Due to the fact that the EndBASIC command line <em>is</em> BASIC, there are a few oddities you will have to get used to when typing commands. The first one is that paths and file names are strings, and as such must be double-quoted. The second one is that arguments to commands must be separated by commas, not just spaces.</p><h2 id=fs-paths>Drives and paths</h2><p>The EndBASIC virtual file system is composed of a bunch of drives, each containing its own collection of files. Drives are mapped to targets, and these targets expose a variety of backend storage services.</p><p>Paths in EndBASIC have the general form <code>[DRIVE:][/]FILENAME</code>. Both the drive name and the slash are optional. When all components are present, such as in <code>LOCAL:/FILE.BAS</code>, we have an absolute path that unique identifies a file; when the drive component is missing, such as in <code>FILE.BAS</code>, we have a relative path to the current working directory.</p><p>The current working directory can be queried with the <code>CWD</code> command and can be changed via the <code>CD</code> command. For example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>PWD
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Working directory: LOCAL:/
+</span></span><span class=line><span class=cl>    System location: /home/jmmv/Documents/endbasic/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>CD &#34;memory:&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>PWD
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Working directory: MEMORY:/
+</span></span><span class=line><span class=cl>    No system location available
+</span></span></code></pre></div><p>Directories are not currently supported. This is why the slash in the paths above is optional, but it&rsquo;s good to get in the habit of specifying it because support for directories will come later.</p><h2 id=fs-providers>Drive providers</h2><p>Drives are mapped to targets, and these targets are backed by virtual file system providers that expose a variety of backend storage services.</p><p>The following providers are currently supported:</p><table><thead><tr><th>Target scheme</th><th>Availability</th><th>Description</th></tr></thead><tbody><tr><td><nobr><code>cloud://user</code></nobr></td><td>All</td><td>Exposes the cloud drive of the <code>user</code>. More on this in the <a href=#cloud>Cloud service</a> section.</td></tr><tr><td><nobr><code>demos://</code></nobr></td><td>All</td><td>Read-only collection of built-in demo programs.</td></tr><tr><td><code>file:///path</code></nobr></td><td>Desktop</td><td>Exposes the <code>/path</code> directory of the local file system. Any subdirectories are ignored.</td></tr><tr><td><nobr><code>local://</code></nobr></td><td>Web</td><td>Provides a file system backed by the browser&rsquo;s local storage. Files saved in this provider never leave your machine.</td></tr><tr><td><nobr><code>memory://</code></nobr></td><td>All</td><td>Memory-backed file system. Different instances of this provider offer disjoint file systems.</td></tr></tbody></table><p>The list of currently-mounted file systems can be queried and modified via the <code>MOUNT</code> command. For example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>MOUNT &#34;cloud://jmmv&#34; AS &#34;jmmv&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>MOUNT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Name      Target
+</span></span><span class=line><span class=cl>    DEMOS     demos://
+</span></span><span class=line><span class=cl>    JMMV      cloud://jmmv
+</span></span><span class=line><span class=cl>    LOCAL     file:///home/jmmv/Documents/endbasic
+</span></span><span class=line><span class=cl>    MEMORY    memory://
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    4 drive(s)
+</span></span></code></pre></div><h2 id=fs-side-loading>Side-loading files</h2><p>While EndBASIC provides a built-in editor, the editor is currently quite simplistic. If you find that the editor limits your development speed, you can side-load files into the interpreter. This feature is only available in the desktop version of EndBASIC.</p><p>To do this, you can either save files under the default projects location, which typically is <code>~/Documents/endbasic/</code>, or you can save them under a directory of your choice and then mount that directory inside EndBASIC using the <code>file://</code> mount target.</p><p>For example, say that you create a program outside of EndBASIC:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>$ mkdir ~/bas
+</span></span><span class=line><span class=cl>$ vim ~/bas/example.bas
+</span></span><span class=line><span class=cl>... edit edit edit ...
+</span></span></code></pre></div><p>Once the file is saved, you can access it like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>MOUNT &#34;file:///home/jmmv/bas&#34; AS &#34;X&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>CD &#34;X:&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>DIR
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Directory of X:/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Modified              Size    Name
+</span></span><span class=line><span class=cl>    2022-06-03 23:37        23    example.bas
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    1 file(s), 23 bytes
+</span></span></code></pre></div><h1 id=cloud>Cloud service</h1><p>The EndBASIC service is a simple cloud-based file system that lets you maintain and share your creations with the world, right from the EndBASIC command line.</p><p>You can always consume public content without creating an account but, to share your own content, you will need an account first.</p><h2 id=cloud-public>Accessing public content</h2><p>To access a file that was shared publicly by you or someone else, you have two options.</p><p>The first option is to tell the web UI to automatically run the program based on a URL of the form:</p><blockquote><p><code>https://repl.endbasic.dev/?run=user/file.bas</code></p></blockquote><p>Replace <code>user</code> with the name of the user that has shared the file and <code>file.bas</code> with the name of the file that was shared. With that, the interpreter will launch, mount the user&rsquo;s public drive, and run the given file. Try it now: <a href="https://repl.endbasic.dev/?run=endbasic/welcome.bas">run the <code>endbasic/welcome.bas</code> demo!</a></p><p>The second option is to mount the user&rsquo;s drive interactively and then investigate its contents. You can do so providing a target of the form <code>cloud://user</code> to the <code>MOUNT</code> command, where <code>user</code> is the name of the user that shared the file. Then, inspect the drive contents with the <code>DIR</code> command and load a file with the <code>LOAD</code> command. Here is a sample session:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>MOUNT &#34;cloud://endbasic&#34; AS &#34;e&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>CD &#34;e:&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>DIR
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Directory of E:/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Modified              Size    Name
+</span></span><span class=line><span class=cl>    2022-05-27 16:25        40    welcome.bas
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    1 file(s), 40 bytes
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>LOAD &#34;welcome.bas&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>LIST
+</span></span><span class=line><span class=cl>PRINT &#34;Welcome to the EndBASIC service!&#34;
+</span></span></code></pre></div><p>When mounting a cloud drive, the contents you see will depend on your credentials. If you are <em>not</em> logged in, all you will see are the user&rsquo;s public files (if any). If you <em>are</em> logged in, whoever, you will also see any files that the user may have shared directly with you.</p><h2 id=cloud-signup>Signing up</h2><p>To create an account, use the <code>SIGNUP</code> command from within the interpreter. You will have to provide basic information for the account, such as a username and a password, and you will also have to provide an email address for account activation (see <a href=#cloud-privacy>privacy notes</a>). Here is what you can expect during account creation:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>SIGNUP
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Let&#39;s gather some information to create your cloud account.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    You can abort this process at any time by hitting Ctrl+C and you will
+</span></span><span class=line><span class=cl>    be given a chance to review your inputs before creating the account.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Username: demo
+</span></span><span class=line><span class=cl>Password: *********
+</span></span><span class=line><span class=cl>Retype password: *********
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    We also need your email address to activate your account.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Your email address will be kept on file in case we have to notify you
+</span></span><span class=line><span class=cl>    of important service issues and will never be made public.  You will
+</span></span><span class=line><span class=cl>    be asked if you want to receive promotional email messages (like new
+</span></span><span class=line><span class=cl>    release announcements) or not, and your selection here will have no
+</span></span><span class=line><span class=cl>    adverse impact in the service you receive.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Email address: your-email@example.com
+</span></span><span class=line><span class=cl>Receive promotional email (y/N)? n
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    We are ready to go.  Please review your answers before proceeding.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Username: demo10
+</span></span><span class=line><span class=cl>Email address: your-email@example.com
+</span></span><span class=line><span class=cl>Promotional email: no
+</span></span><span class=line><span class=cl>Continue (y/N)? y
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Your account has been created and is pending activation.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Check your email now and look for a message from the EndBASIC Service.
+</span></span><span class=line><span class=cl>    Follow the instructions in it to activate your account.  Make sure to
+</span></span><span class=line><span class=cl>    check your spam folder.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Once your account is activated, come back here and use LOGIN to get
+</span></span><span class=line><span class=cl>    started!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    If you encounter any problems, please contact support@endbasic.dev.
+</span></span></code></pre></div><p>After you complete this process, check your email and look out for a message from the EndBASIC service. You&rsquo;ll have to click on the link provided within to activate your account, and you must do that before proceeding.</p><p>Note the question above to receive promotional emails. If you consent to that, you will receive notifications of new EndBASIC releases and new <a href=https://jmmv.dev/tags/endbasic/>blog posts</a> via email. I&rsquo;d appreciate it if you said yes as a mechanism to keep a certain level of engagement in EndBASIC over time. Expect about one email a month at most.</p><h2 id=cloud-login>Logging in</h2><p>Once you have created and activated your account, all you have to do is type <code>LOGIN "username"</code> to log into your account:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>LOGIN &#34;demo&#34;
+</span></span><span class=line><span class=cl>Password: ********
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>----- BEGIN SERVER MOTD -----
+</span></span><span class=line><span class=cl>Welcome back, demo! It&#39;s good to see you again.
+</span></span><span class=line><span class=cl>-----  END SERVER MOTD  -----
+</span></span></code></pre></div><p>After a successful log in, the EndBASIC client will mount the <code>CLOUD:</code> drive, which is your personal space to hold files in the cloud. Any files stored in this drive are private to you by default, but they can be shared with others with ease using the <code>SHARE</code> command.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>CD &#34;CLOUD:&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>DIR
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Directory of CLOUD:/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    Modified              Size    Name
+</span></span><span class=line><span class=cl>    2021-06-25 13:51       116    thanks.bas
+</span></span><span class=line><span class=cl>    2021-06-25 13:50       103    welcome.bas
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    2 file(s), 219 bytes
+</span></span><span class=line><span class=cl>    65317 of 65536 bytes free
+</span></span></code></pre></div><h2 id=cloud-upload>Uploading a program</h2><p>Sometimes, it is simpler to develop a program outside of the EndBASIC environment and then <a href=#fs-side-loading>side-load it into the interpreter</a>. This is easy to do in the desktop build of EndBASIC because it has direct access to the local file system, but it is hard to do for any file in the cloud.</p><p>The way around this is to develop your program locally and then upload it to the cloud. To do this, you will have to do a manual file copy. For example, suppose we want to upload <code>LOCAL:/upload.bas</code> to <code>CLOUD:/upload.bas</code>. We can do so by loading the file into memory and then saving it again, like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>LOAD &#34;LOCAL:/upload.bas&#34;
+</span></span><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>SAVE &#34;CLOUD:/upload.bas&#34;
+</span></span><span class=line><span class=cl>Saved as CLOUD:/upload.bas
+</span></span></code></pre></div><h2 id=cloud-public-share>Publishing a program</h2><p>The primary purpose of the EndBASIC cloud service is to let you share your magical creations with the public.</p><p>Files saved in cloud drives have reader ACLs that control who can read them. You can give read permissions to individual users, or you can give read permissions to everyone by means of the <code>public</code> pseudo-user.</p><p>Suppose we have saved a <code>awesome.bas</code> file in our cloud drive. We can share it with the public like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Ready
+</span></span><span class=line><span class=cl>SHARE &#34;CLOUD:/awesome.bas&#34;, &#34;public+r&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    You have made the file publicly readable.  As a result, other people
+</span></span><span class=line><span class=cl>    can now auto-run your public file by visiting:
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    https://repl.endbasic.dev/?run=jmmv/awesome.bas
+</span></span></code></pre></div><p>Note how the <code>SHARE</code> command detects that you have made the file public and will print the URL that users can open to <a href=#cloud-public>automatically launch your program</a>.</p><h2 id=cloud-privacy>Privacy and security notes</h2><p>EndBASIC is, right now, a toy project. While I have tried my best to keep the service secure and private, I ask that you <i>do not store any sensitive information in this service</i>.</p><p>More specifically:</p><ol><li><p>Your user account and files are stored in a PostgreSQL database managed by Azure. Read the <a href=https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-overview>Azure Encryption documentation</a> for more details on what this entails.</p></li><li><p>I collect high-level metadata on all requests to the cloud service for troubleshooting purposes and basic usage analytics. Details include the contacted API endpoint, the client IP address, and the originating browser agent. The logs do not include the request payloads, but obviously the database does.</p></li><li><p>The email address collected during the sign-up process will only be used for critical service-related communications by default. These can include notifications of data loss due to the evolving nature of the service. There has only been the need to send one such notification so far, and I expect the volume of these emails to be near zero.</p></li><li><p>Your email address will never be sold nor given to third-parties. However, as part of giving you service, your email must flow through SendGrid and has is in theory visible to the operators of the PostgreSQL database managed by Azure.</p></li><li><p>You can opt in to receiving &ldquo;promotional emails&rdquo;, and I would appreciate it if you did so. These emails will include notifications of new EndBASIC releases as well as notifications of new <a href=https://jmmv.dev/tags/endbasic/>blog posts</a>. You can expect about one such message per month on average.</p></li><li><p>You can always update your account&rsquo;s information or permanently delete your account and all information associated with it. <a href=mailto:support@endbasic.dev>Contact support</a> and I&rsquo;ll be happy to assist you; I haven&rsquo;t had a chance to build those features within the interface yet.</p></li></ol><h1 id=hw>Hardware access</h1><p>EndBASIC supports limited direct hardware access as a way to play with real-world hardware. Toying with LEDs, buttons, and the like can be a great way of learning how computers work, and is the reason why this support was builtin EndBASIC.</p><p>Hardware support is currently limited to the desktop builds for the Raspberry Pi, which you can get from the <a href=/download.html>Download</a> page.</p><h2 id=hw-gpio>GPIO</h2><p>EndBASIC has support to manipulate the GPIO pins of the Raspberry Pi via the family of commands described in <code>HELP "HARDWARE"</code>.</p><p>As an example, here is how to wait for a physical button press attached to pin number 8:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=vg>GPIO_SETUP</span><span class=w> </span><span class=il>8</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;IN-PULL-DOWN&#34;</span>
+</span></span><span class=line><span class=cl><span class=vg>pressed</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>FALSE</span>
+</span></span><span class=line><span class=cl><span class=kr>WHILE</span><span class=w> </span><span class=ow>NOT</span><span class=w> </span><span class=vg>pressed</span><span class=o>?</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>pressed</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>GPIO_READ</span><span class=p>(</span><span class=il>8</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=mf>0.01</span>
+</span></span><span class=line><span class=cl><span class=kr>WEND</span>
+</span></span></code></pre></div><p>And here is how to flash an LED attached to pin number 18:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=line><span class=cl><span class=vg>GPIO_SETUP</span><span class=w> </span><span class=il>18</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;OUT&#34;</span>
+</span></span><span class=line><span class=cl><span class=vg>state</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>TRUE</span>
+</span></span><span class=line><span class=cl><span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=vg>to</span><span class=w> </span><span class=il>10</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>GPIO_WRITE</span><span class=w> </span><span class=il>18</span><span class=p>,</span><span class=w> </span><span class=vg>state</span><span class=o>?</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=il>1</span>
+</span></span><span class=line><span class=cl><span class=w>    </span><span class=vg>state</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=ow>NOT</span><span class=w> </span><span class=vg>state</span><span class=o>?</span>
+</span></span><span class=line><span class=cl><span class=kr>NEXT</span>
+</span></span><span class=line><span class=cl><span class=vg>GPIO_CLEAR</span>
+</span></span></code></pre></div><h1 id=config>Configuration</h1><h2 id=config-autoexec>AUTOEXEC.BAS</h2><p>The EndBASIC interpreter looks for a file named <code>AUTOEXEC.BAS</code> (all uppercase) in the <code>LOCAL:/</code> drive at startup time and, if found, will run it before dropping you into the command prompt.</p><p>You can create this file from within the interpreter and make it run any commands you like. A common use may be to run <code>LOGIN</code> to automatically log into your cloud account. Or you could use it to customize the appearance of the console by changing its colors.</p></article><footer class="container py-5"><div class=row><div class="col-12 col-md text-center">EndBASIC
+<small class="d-block mb-3 text-muted">Julio Merino &copy; 2020-2022</small></div></div></footer><script type=module>
+  const SITE_ID = '6a633c2c-7fda-11ec-86e4-1cfd087199c2';
 
-    Directory of LOCAL:/
-
-    Modified              Size    Name
-    2022-06-03 13:08        55    hello.bas
-
-    1 file(s), 55 bytes
-
-Ready
-LOAD &#34;hello.bas&#34;
-</code></pre></div><p>Once you have given the program a name, the interpreter will keep track of it until you exit or discard the currently-loaded program via the <code>NEW</code> command. This means that any subsequent <code>SAVE</code> operation can be done without re-entering the program name: simply typing <code>SAVE</code> will update the previously-created file with the new contents.</p>
-<p>EndBASIC will try to prevent you from losing your program. For example, if you try to drop the current program with <code>NEW</code> or exit the interpreter before saving your program, EndBASIC will prompt you to confirm your actions.</p>
-<p>That said, get in the habit of saving your program frequently. If your program gets stuck, you may need to reboot the interpreter and there is no protection against that.</p>
-<h2 id=intro-help>Getting help</h2>
-<p>EndBASIC is designed to be self-documenting, and this document does not intend to provide a full reference manual to EndBASIC because this information is already built into the interpreter.</p>
-<p>To access the built-in reference documentation, type <code>HELP</code> within the interpreter, which will greet you with a message like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-HELP
-
-    This is EndBASIC 0.9.99.
-
-    Project page at &lt;https://www.endbasic.dev/&gt;
-    License Apache Version 2.0 &lt;http://www.apache.org/licenses/LICENSE-2.0&gt;
-
-    Top-level help topics
-
-    &gt;&gt; Array functions
-    &gt;&gt; Cloud access
-    &gt;&gt; Console
-    &gt;&gt; Data management
-    &gt;&gt; File system
-    &gt;&gt; Graphics
-    &gt;&gt; Hardware interface
-    &gt;&gt; Interpreter
-    &gt;&gt; Language reference
-    &gt;&gt; Numerical functions
-    &gt;&gt; Stored program
-    &gt;&gt; String and character functions
-
-    Type HELP followed by the name of a topic for details.
-    Type HELP &#34;HELP&#34; for details on how to specify topic names.
-    Type LOAD &#34;DEMOS:/TOUR.BAS&#34;: RUN for a guided tour.
-    Type END or press CTRL+D to exit.
-</code></pre></div><p>This main help page shows you the available help topics. To get extra help, you need to provide one of those topics to the <code>HELP</code> command. Topic matching is done on a prefix basis, so you can type only part of the topic name. For example, to access the <strong>Array functions</strong> topic:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-HELP &#34;ARR&#34;
-
-    Array functions
-
-    &gt;&gt; LBOUND%    Returns the lower bound for the given dimension of the array.
-    &gt;&gt; UBOUND%    Returns the upper bound for the given dimension of the array.
-
-    Type HELP followed by the name of a symbol for details.
-</code></pre></div><p>And from there, you can also obtain extra information on the subtopics. For example, to get details on the <code>LBOUND%</code> function:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-HELP &#34;LB&#34;
-
-    LBOUND%(array[, dimension%])
-
-    Returns the lower bound for the given dimension of the array.
-
-    The lower bound is the smallest available subscript that can be
-    provided to array indexing operations.
-
-    For one-dimensional arrays, the dimension% is optional.  For
-    multi-dimensional arrays, the dimension% is a 1-indexed integer.
-</code></pre></div><p>Pay special attention to the <code>LANG</code> topic, which gives you access to documentation on the language itself. This document replicates some of that information.</p>
-<h1 id=lang>Language basics</h1>
-<p>EndBASIC is an interpreter for a BASIC-like language and is inspired by Amstrad’s Locomotive BASIC 1.1 and Microsoft’s QuickBASIC 4.5. The language itself includes many of the features that you may expect from BASIC, but it can also feel lacking in some scenarios. Please let me know if you find yourself needing a new language construct or new standard library features.</p>
-<h2 id=lang-case>Case sensitivity</h2>
-<p>EndBASIC is case-insensitive. It is common to write BASIC code all in uppercase, but this is not a requirement. The convention in the EndBASIC interpreter, the documentation, and example code is to write all keywords in uppercase and all identifiers (variable names) in lowercase.</p>
-<p>As a tip, note that uppercase keywords make the code look dated because all modern programming languages use <code>lower_snake_case</code> (Rust, C++), <code>camelCase</code> (Java, Python, Go) or <code>PascalCase</code> (C#, Go). Writing your EndBASIC code in lowercase will make it look more modern.</p>
-<p>For extra trivia, note that the convention in Visual Basic is to use <code>CamelCase</code>.</p>
-<h2 id=lang-types>Primitive types</h2>
-<p>EndBASIC is a strongly typed language. Variables are assigned a type at definition time and their type remains immutable throughout their existence. This type is represented as a single-character type annotation appended to the variable names. The type annotation is optional, in which case EndBASIC will infer types, but it must match the type of the variable if present.</p>
-<p>Similarly to the note on case sensitivity, the convention in EndBASIC is to almost-always show type annotations next to variable names, but this makes the code look dated. For a more modern look, avoid type annotations unless explicitly required.</p>
-<p>The following types are supported:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Annotation</th>
-<th>Default</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Boolean</td>
-<td><code>?</code></td>
-<td><code>FALSE</code></td>
-<td><code>TRUE</code> and <code>FALSE</code></td>
-</tr>
-<tr>
-<td>Double floating point</td>
-<td><code>#</code></td>
-<td><code>0.0</code></td>
-<td>Numbers with a period</td>
-</tr>
-<tr>
-<td>32-bit signed integers</td>
-<td><code>%</code></td>
-<td><code>0</code></td>
-<td>Numbers from -2,147,483,648 to 2,147,483,647</td>
-</tr>
-<tr>
-<td>Strings</td>
-<td><code>$</code></td>
-<td><code>""</code></td>
-<td>Any text enclosed in double-quotes</td>
-</tr>
-</tbody>
-</table>
-<p>Integer literals can also be specified in base form:</p>
-<table>
-<thead>
-<tr>
-<th>Base</th>
-<th>Integer literals</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Binary</td>
-<td><code>&b0101</code> or <code>&b_0101</code></td>
-</tr>
-<tr>
-<td>Octal</td>
-<td><code>&o750</code> or <code>&o_750</code></td>
-</tr>
-<tr>
-<td>Decimal</td>
-<td><code>789</code>, <code>&d789</code> or <code>&d_789</code></td>
-</tr>
-<tr>
-<td>Hexadecimal</td>
-<td><code>&xa10f</code> or <code>&x_a10f</code></td>
-</tr>
-</tbody>
-</table>
-<p>New variables can be defined <em>and</em> declared at assignment time, like in these examples:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=vg>bool_var</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>TRUE</span>
-<span class=vg>double_var#</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mf>5.0</span>
-<span class=vg>integer_var</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>5</span>
-<span class=vg>string_var$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&#34;Hello, world!&#34;</span>
-</code></pre></div><p>Or they can be declared and set to their default values with the <code>DIM</code> command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kd>DIM</span><span class=w> </span><span class=vg>b</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=vg>BOOLEAN</span><span class=w> </span><span class=c1>&#39; b? is set to FALSE.</span>
-<span class=kd>DIM</span><span class=w> </span><span class=vg>d</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>DOUBLE</span><span class=w> </span><span class=c1>&#39; d# is set to 0.0.</span>
-<span class=kd>DIM</span><span class=w> </span><span class=vg>i</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>INTEGER</span><span class=w> </span><span class=c1>&#39; i% is set to 0.</span>
-<span class=kd>DIM</span><span class=w> </span><span class=vg>s</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>STRING</span><span class=w> </span><span class=c1>&#39; s$ is set to &#34;&#34;.</span>
-</code></pre></div><h2 id=lang-arrays>Arrays</h2>
-<p>EndBASIC supports multidimensional arrays. Arrays are represented as contiguous blocks of memory in row-wise order and all values in the array must be of the same type.</p>
-<p>Arrays must be defined with the <code>DIM</code> command and are later accessed using parenthesis (which is unlike most common languages today, which use square brackets for indexing):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=c1>&#39; Define a 2-dimensional array (aka matrix) with 5 rows and 3 columns.</span>
-<span class=kd>DIM</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>3</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>INTEGER</span>
-
-<span class=err>`</span><span class=w> </span><span class=vg>Assign</span><span class=w> </span><span class=vg>and</span><span class=w> </span><span class=vg>access</span><span class=w> </span><span class=vg>two</span><span class=w> </span><span class=vg>different</span><span class=w> </span><span class=vg>positions</span><span class=o>.</span>
-<span class=vg>arr</span><span class=p>(</span><span class=il>3</span><span class=p>,</span><span class=w> </span><span class=il>2</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>12345</span>
-<span class=kr>PRINT</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=il>1</span><span class=p>,</span><span class=w> </span><span class=il>1</span><span class=p>)</span>
-</code></pre></div><p>Arrays are 0-indexed, which matches QuickBASIC and modern programming practices. There is no support for <code>OPTION BASE</code> nor to specify the lower bound of an array to change this behavior. This might change though, so you are encouraged to use <code>LBOUND%</code> and <code>UBOUND%</code> when iterating over arrays to make your code future-proof:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kd>DIM</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=il>10</span><span class=p>)</span>
-<span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kr>LBOUND</span><span class=o>%</span><span class=p>(</span><span class=vg>arr</span><span class=p>)</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=kr>UBOUND</span><span class=o>%</span><span class=p>(</span><span class=vg>arr</span><span class=p>)</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=p>,</span><span class=w> </span><span class=vg>arr</span><span class=p>(</span><span class=vg>i</span><span class=p>)</span>
-<span class=kr>NEXT</span>
-</code></pre></div><h2 id=lang-ops>Operators</h2>
-<h3 id=lang-arithmetic-ops>Arithmetic operators</h3>
-<p>EndBASIC supports the following arithmetic operators:</p>
-<table>
-<thead>
-<tr>
-<th>Expression</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>a + b</code></td>
-<td>Addition</td>
-</tr>
-<tr>
-<td><code>a - b</code></td>
-<td>Subtraction</td>
-</tr>
-<tr>
-<td><code>a * b</code></td>
-<td>Multiplication</td>
-</tr>
-<tr>
-<td><code>a / b</code></td>
-<td>Division (integer or floating point depending on variable types)</td>
-</tr>
-<tr>
-<td><code>a MOD b</code></td>
-<td>Modulo operation (integer division remainder)</td>
-</tr>
-<tr>
-<td><code>a ^ b</code></td>
-<td>Exponent operation</td>
-</tr>
-<tr>
-<td><code>-a</code></td>
-<td>Sign flip</td>
-</tr>
-</tbody>
-</table>
-<p>Integers are automatically promoted to doubles when they appear in a floating point expression, and floats are rounded to the closest integer (3.4 becomes 3, but 3.5 becomes 4) when they appear in a context that requires integers.</p>
-<h3 id=lang-comparison-ops>Comparison operators</h3>
-<p>EndBASIC supports the following comparison operators:</p>
-<table>
-<thead>
-<tr>
-<th>Expression</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>a = b</code></td>
-<td>Equality comparison</td>
-</tr>
-<tr>
-<td><code>a &lt;> b</code></td>
-<td>Inequality comparison</td>
-</tr>
-<tr>
-<td><code>a &lt; b</code></td>
-<td>Less-than comparison</td>
-</tr>
-<tr>
-<td><code>a &lt;= b</code></td>
-<td>Less-than or equal to comparison</td>
-</tr>
-<tr>
-<td><code>a > b</code></td>
-<td>Greater-than comparison</td>
-</tr>
-<tr>
-<td><code>a >= b</code></td>
-<td>Greater-than or equal to comparison</td>
-</tr>
-</tbody>
-</table>
-<p>Integers are automatically promoted to doubles when they appear in a floating point expression, and floats are rounded to the closest integer (3.4 becomes 3, but 3.5 becomes 4) when they appear in a context that requires integers.</p>
-<h3 id=lang-logical-ops>Logical and bitwise operators</h3>
-<p>EndBASIC supports the following logical and bitwise operators:</p>
-<table>
-<thead>
-<tr>
-<th>Expression</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>a AND b</code></td>
-<td>Logical or bitwise and</td>
-</tr>
-<tr>
-<td><code>a OR b</code></td>
-<td>Logical or bitwise or</td>
-</tr>
-<tr>
-<td><code>a XOR b</code></td>
-<td>Logical or bitwise exclusive or</td>
-</tr>
-<tr>
-<td><code>NOT a</code></td>
-<td>Logical or bitwise negation</td>
-</tr>
-<tr>
-<td><code>a &lt;&lt; b</code></td>
-<td>Bitwise integer left shift</td>
-</tr>
-<tr>
-<td><code>a >> b</code></td>
-<td>Bitwise integer right shift (signed)</td>
-</tr>
-</tbody>
-</table>
-<p>When the operands to these operators are booleans, they perform logical comparisons. There is no automatic coercing of other types into booleans, and there will not be. In particular, this means that something like <code>NOT a</code> in a boolean context is invalid unless <code>a</code> is a boolean.</p>
-<p>When the operands to these operators are integers, they perform bitwise operations. The result of these operations are integers, so they cannot be directly used in boolean context. For example, if you are trying to test if a bit is set, you will have to compare the outcome of a bitwise operation against an integer:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>IF</span><span class=w> </span><span class=p>(</span><span class=vg>a</span><span class=w> </span><span class=ow>AND</span><span class=w> </span><span class=o>&amp;</span><span class=vg>b_0001</span><span class=p>)</span><span class=w> </span><span class=o>&lt;&gt;</span><span class=w> </span><span class=il>0</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;a has the right-most bit set&#34;</span>
-</code></pre></div><h2 id=lang-expr>Expressions</h2>
-<p>All of the previously-described operators can be combined in complex expressions. The following ordering applies when evaluating expressions:</p>
-<ol>
-<li>Function calls and array references.</li>
-<li>Parenthetical sub-expressions.</li>
-<li>Arithmetical sign flip and logical negation.</li>
-<li>Arithmetical multiplication, division and modulo.</li>
-<li>Arithmetical addition and subtration.</li>
-<li>Comparisons.</li>
-<li>Logical/bitwise and, or and exclusive or.</li>
-</ol>
-<p>Operators of the same priority are applied left-to-right. For example, in <code>3 - 4 + 5</code>, where both addition and subtraction have the same priority ordering, the subtraction will be done before the addition (as you would expect).</p>
-<p>As an example, here is an expression to compute a random number between 500 and 600 and check whether the resulting number is within 500 to 550:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-PRINT INT(RND(1) * 100.0) + 500 &lt; 550
-FALSE
-</code></pre></div><h2 id=lang-goto>GOTO and GOSUB</h2>
-<p>EndBASIC supports unconditional jumps to labels and explicitly-assigned line numbers, just like QuickBASIC supports. Labels are words prefixed by the <code>@</code> sign that appear on a line of their own and line numbers prefix statements just like they do in traditional BASIC implementations.</p>
-<p>Here are some examples:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>GOTO</span><span class=w> </span><span class=err>@</span><span class=vg>first</span>
-
-<span class=err>@</span><span class=vg>first</span>
-<span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;first&#34;</span>
-<span class=kr>GOTO</span><span class=w> </span><span class=err>@</span><span class=vg>second</span>
-
-<span class=err>@</span><span class=nl>second:</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;second&#34;</span><span class=o>:</span><span class=w> </span><span class=kr>GOTO</span><span class=w> </span><span class=nl>300</span>
-
-<span class=nl>300</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;third&#34;</span>
-</code></pre></div><p>The <code>@</code> prefix for label names is an EndBASIC-specific artifact required to resolve parsing ambiguities. This requirement might be relaxed in the future.</p>
-<p>EndBASIC does not yet support defining custom functions nor procedures, but it supports <code>GOSUB</code>, which provides an unconditional jump to a target location (using the same syntax as <code>GOTO</code>) and the ability to return to the call site via <code>RETURN</code>.</p>
-<p>You can use this feature to implementing rudimentary procedures and functions. For example:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=vg>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>3</span><span class=o>:</span><span class=w> </span><span class=vg>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>4</span><span class=o>:</span><span class=w> </span><span class=kr>GOSUB</span><span class=w> </span><span class=err>@</span><span class=vg>add</span>
-<span class=kr>PRINT</span><span class=w> </span><span class=vg>result</span>
-<span class=kr>END</span>
-
-<span class=err>@</span><span class=vg>add</span>
-<span class=vg>result</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>x</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=vg>y</span>
-<span class=kr>RETURN</span>
-</code></pre></div><h2 id=lang-conditionals>Conditionals</h2>
-<h3 id=lang-if>If statements</h3>
-<p>EndBASIC supports conditional statements (<code>IF</code>) with zero or more alternate branches (<code>ELSE IF</code> and <code>ELSE</code>).</p>
-<p>Here is how the most simple construct looks like:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>IF</span><span class=w> </span><span class=il>3</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>5</span><span class=w> </span><span class=kr>THEN</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Three is less than five&#34;</span>
-<span class=kr>END</span><span class=w> </span><span class=kr>IF</span>
-</code></pre></div><p>Here is a more advanced construct with multiple alternate branches:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=vg>discount#</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kr>RND</span><span class=p>(</span><span class=il>1</span><span class=p>)</span>
-<span class=kr>IF</span><span class=w> </span><span class=vg>discount#</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mf>0.2</span><span class=w> </span><span class=kr>THEN</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Meh, a small discount.&#34;</span>
-<span class=k>ELSEIF</span><span class=w> </span><span class=vg>discount#</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mf>0.7</span><span class=w> </span><span class=kr>THEN</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Nice, a good discount!&#34;</span>
-<span class=k>ELSE</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Wow, an amazing discount!&#34;</span>
-<span class=kr>END</span><span class=w> </span><span class=kr>IF</span>
-</code></pre></div><p>One-line if statements are also supported and have these forms:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>IF</span><span class=w> </span><span class=il>3</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>5</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Less&#34;</span>
-<span class=kr>IF</span><span class=w> </span><span class=il>3</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>5</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Less&#34;</span><span class=w> </span><span class=k>ELSE</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;More&#34;</span>
-</code></pre></div><h3 id=lang-select>Multiple choice</h3>
-<p>Other than for <code>IF</code>/<code>ELSE IF</code> conditionals, EndBASIC also supports to more advanced <code>SELECT CASE</code> multiple choice statement. Here is how it looks like:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>INPUT</span><span class=w> </span><span class=s2>&#34;Enter a number&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>a</span>
-<span class=kr>SELECT CASE</span><span class=w> </span><span class=vg>a</span>
-<span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=il>1</span><span class=p>,</span><span class=w> </span><span class=il>3</span><span class=p>,</span><span class=w> </span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>7</span><span class=p>,</span><span class=w> </span><span class=il>9</span>
-<span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Odd&#34;</span>
-<span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>2</span><span class=p>,</span><span class=w> </span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>6</span><span class=p>,</span><span class=w> </span><span class=il>8</span>
-<span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Even&#34;</span>
-<span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=k>IS</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>10</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=il>100</span>
-<span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Other cases&#34;</span>
-<span class=w>    </span><span class=k>CASE</span><span class=w> </span><span class=k>ELSE</span>
-<span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Fallback&#34;</span>
-<span class=kr>END</span><span class=w> </span><span class=kr>SELECT</span>
-</code></pre></div><h2 id=lang-loops>Loops</h2>
-<p>EndBASIC supports a wide variety of loop types.</p>
-<h3 id=lang-while>While loops</h3>
-<p>While loops are supported via the <code>WHILE</code> and <code>WEND</code> keyword. Here is how they look like:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=vg>n</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
-<span class=kr>WHILE</span><span class=w> </span><span class=vg>n</span><span class=o>%</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=ow>OR</span><span class=w> </span><span class=vg>n</span><span class=o>%</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=il>10</span>
-<span class=w>    </span><span class=kr>INPUT</span><span class=w> </span><span class=s2>&#34;Enter a number between 1 and 10: &#34;</span><span class=p>,</span><span class=w> </span><span class=vg>n</span><span class=o>%</span>
-<span class=kr>WEND</span>
-</code></pre></div><h3 id=lang-for>For loops</h3>
-<p>For loops are supported via the <code>FOR</code> keyword. For loops iterate over an inclusive range of integers with a default step of 1. For example, the following loop will print numbers 1, 2, 3, 4 and 5:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=il>5</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
-<span class=kr>NEXT</span>
-</code></pre></div><p>The stepping through the range is configurable via the <code>STEP</code> keyword, and this can be both positive and negative. For example, the following loop will print the numbers 10, 8, 6, 4 and 2:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>10</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=k>STEP</span><span class=w> </span><span class=il>-2</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
-<span class=kr>NEXT</span>
-</code></pre></div><p>Both the beginning and end of the range can be arbitrary integer expressions. However, the <code>STEP</code> argument must be an integer literal.</p>
-<h3 id=lang-do>Do loops</h3>
-<p>Do loops are the most generic type of loop, as they can specify until/while conditions at the start or at the end, or they may omit all conditions to specify an infinite loop.</p>
-<p>Here are some examples:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>DO</span>
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Infinite loop&#34;</span>
-<span class=kr>LOOP</span>
-
-<span class=kr>DO</span>
-<span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
-<span class=kr>LOOP</span><span class=w> </span><span class=k>UNTIL</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>10</span>
-
-<span class=kr>DO</span>
-<span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
-<span class=kr>LOOP</span><span class=w> </span><span class=kr>WHILE</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>10</span>
-
-<span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
-<span class=kr>DO</span><span class=w> </span><span class=k>UNTIL</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>10</span>
-<span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
-<span class=kr>LOOP</span>
-
-<span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
-<span class=kr>DO</span><span class=w> </span><span class=kr>WHILE</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>10</span>
-<span class=w>    </span><span class=vg>a</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span>
-<span class=kr>LOOP</span>
-</code></pre></div><p>The <code>EXIT DO</code> statement can be used to terminate a <code>DO</code> loop.</p>
-<h2 id=lang-on-error>Error handling</h2>
-<p>Certain errors can be caught and handled programmatically, such as when trying to perform graphical operations on a non-graphical console. This can be achieved with the <code>ON ERROR</code> statement, which configures what to do whenever an error arises. The following options are available:</p>
-<ul>
-<li>
-<p><code>ON ERROR GOTO 0</code>: Restores the default error handler, which terminates the program upon the next error that arises.</p>
-</li>
-<li>
-<p><code>ON ERROR GOTO @label</code>: Continues execution at <code>@label</code> when an error happens.</p>
-</li>
-<li>
-<p><code>ON ERROR RESUME NEXT</code>: Continues execution at the next statement when an error happens.</p>
-</li>
-</ul>
-<p>The <code>ERRMSG</code> function returns the textual representation of the last error that was caught.</p>
-<h2 id=lang-data>Data blocks</h2>
-<p>A program can specify data values with the <code>DATA</code> statement. These data values can be defined anywhere in the program and can be extracted later on via the <code>READ</code> statement. Here is an example:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kd>DATA</span><span class=w> </span><span class=il>1</span><span class=p>,</span><span class=w> </span><span class=il>3</span><span class=p>,</span><span class=w> </span><span class=il>5</span><span class=p>,</span><span class=w> </span><span class=il>7</span><span class=p>,</span><span class=w> </span><span class=il>9</span>
-
-<span class=kr>DO</span>
-<span class=w>    </span><span class=kr>READ</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
-<span class=w>    </span><span class=kr>IF</span><span class=w> </span><span class=vg>i</span><span class=o>%</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=il>0</span><span class=w> </span><span class=kr>THEN</span><span class=w> </span><span class=kr>EXIT</span><span class=w> </span><span class=kr>DO</span>
-
-<span class=w>    </span><span class=kr>PRINT</span><span class=w> </span><span class=vg>i</span><span class=o>%</span>
-<span class=kr>LOOP</span>
-
-<span class=kd>DATA</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>2</span><span class=p>,</span><span class=w> </span><span class=il>4</span><span class=p>,</span><span class=w> </span><span class=il>8</span><span class=p>,</span><span class=w> </span><span class=il>-1</span>
-</code></pre></div><h1 id=console>Console</h1>
-<p>The EndBASIC console is a hybrid console that offers overlapping textl <em>and</em> graphics. As such, the console exposes two coordinate systems: commands that deal with text use character-based coordinates, and commands that deal with graphics use pixel-based coordinates. Both coordinate systems are 0-indexed and start at the top-left corner of the console.</p>
-<p>The graphical console is available by default in the web version of EndBASIC.</p>
-<p>Desktop builds have support for the graphical console as well, but they must be built with SDL support. All prebuilt binaries in the <a href=/download.html>Download</a> section have SDL support. Note, however, that to launch the desktop version of EndBASIC with graphics support, you will have to use a command like these:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>endbasic --console=graphics             # Default settings.
-endbasic --console=graphics:1024x768    # Specific resolution.
-endbasic --console=graphics:1920x1080fs # Specific resolution, full screen.
-</code></pre></div><h2 id=console-text>Text manipulation</h2>
-<p>The EndBASIC text console provides sufficient features to build simple text-based interactive interfaces. These include changing colors, moving the cursor around, and waiting for key presses.</p>
-<p>To get started, you can play with the <code>CLS</code> command to clear the screen, the <code>COLOR</code> command to set the foreground and/or background colors of the text, and the <code>LOCATE</code> command to move the cursor to a new position. Note that <code>LOCATE</code> on its own is useless unless it is immediately followed by a <code>PRINT</code> invocation.</p>
-<p>To experience these features, type the following string of commands in the console and press Enter:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>COLOR</span><span class=w> </span><span class=il>15</span><span class=p>,</span><span class=w> </span><span class=il>12</span><span class=o>:</span><span class=w> </span><span class=kr>CLS</span><span class=o>:</span><span class=w> </span><span class=kr>LOCATE</span><span class=w> </span><span class=il>10</span><span class=p>,</span><span class=w> </span><span class=il>10</span><span class=o>:</span><span class=w> </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Hello&#34;</span><span class=o>:</span><span class=w> </span><span class=kr>LOCATE</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>15</span>
-</code></pre></div><h2 id=console-inkey>Interactive interfaces</h2>
-<p>To build any kind of interactive interface, be it textual or graphical, you will need to wait for key presses. The <code>INPUT</code> command is insufficient for this because it waits for a full line of input. But we can use the <code>INKEY</code> function to poll the keyboard for an input.</p>
-<p>For example, see this code to build a loop that waits for a key press and then reacts to it:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;Press keys to get feedback, or ESC to exit&#34;</span>
-<span class=vg>k$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&#34;&#34;</span>
-<span class=kr>WHILE</span><span class=w> </span><span class=vg>k$</span><span class=w> </span><span class=o>&lt;&gt;</span><span class=w> </span><span class=s2>&#34;ESC&#34;</span>
-<span class=w>    </span><span class=vg>k$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>INKEY</span>
-<span class=w>    </span><span class=kr>IF</span><span class=w> </span><span class=vg>k$</span><span class=w> </span><span class=o>&lt;&gt;</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w> </span><span class=kr>THEN</span>
-<span class=w>        </span><span class=kr>PRINT</span><span class=w> </span><span class=s2>&#34;You pressed&#34;</span><span class=p>;</span><span class=w> </span><span class=vg>k$</span>
-<span class=w>    </span><span class=kr>END</span><span class=w> </span><span class=kr>IF</span>
-<span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=mf>0.01</span>
-<span class=kr>WEND</span>
-</code></pre></div><h2 id=console-gfx>Rendering graphics</h2>
-<p>A distinctive feature of EndBASIC is its support for graphics and text in the same console. You can start rendering graphics right from the command line, without having to understand how two separate windows interact with each other or without changing modes.</p>
-<p>To get started, play with the <code>GFX_LINE</code> or <code>GFX_RECT</code> commands:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=vg>GFX_LINE</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>0</span><span class=p>,</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=il>100</span>
-<span class=vg>GFX_RECT</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=il>300</span><span class=p>,</span><span class=w> </span><span class=il>300</span>
-</code></pre></div><p>Remember that you can access detailed reference information for all available commands within the graphics category by typing <code>HELP "GRAPHICS"</code>.</p>
-<h2 id=console-sync>Efficient graphics rendering</h2>
-<p>Drawing occasional graphics from the console by typing individual commands is a great way of exploring what&rsquo;s available and understanding how the computer reacts to code, but rendering graphics in this manner is not very efficient: every drawing operation will be flushed to the video card as soon as it is executed, and this is a slow process.</p>
-<p>To draw animations in an efficient manner, you must explicitly control when the console&rsquo;s contents are sent to the screen: in other words, you need to control when every video sync operation happens.</p>
-<p>The general idea is that your program needs to render everything first &ldquo;in memory&rdquo; and then tell the video driver to paint the results. This can be accomplished via the <code>GFX_SYNC</code> command, which allows us to enable or disable automatic video flushing, and to explicitly flush the video.</p>
-<p>Here is a sample program that renders an animation. Pay attention to the way the calls to the <code>GFX_SYNC</code> are done:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=c1>&#39; Disable automatic video syncing.</span>
-<span class=vg>GFX_SYNC</span><span class=w> </span><span class=vg>FALSE</span>
-
-<span class=c1>&#39; Loop until any key is pressed.</span>
-<span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
-<span class=vg>c</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>0</span>
-<span class=kr>WHILE</span><span class=w> </span><span class=vg>INKEY$</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&#34;&#34;</span>
-<span class=w>    </span><span class=c1>&#39; Clear the screen and render the current frame.</span>
-<span class=w>    </span><span class=kr>CLS</span>
-<span class=w>    </span><span class=kr>COLOR</span><span class=w> </span><span class=vg>c</span><span class=o>%</span>
-<span class=w>    </span><span class=vg>GFX_RECTF</span><span class=w> </span><span class=vg>x</span><span class=o>%</span><span class=p>,</span><span class=w> </span><span class=il>100</span><span class=p>,</span><span class=w> </span><span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>10</span><span class=p>,</span><span class=w> </span><span class=il>110</span>
-
-<span class=w>    </span><span class=c1>&#39; Update positions and colors for the next frame.</span>
-<span class=w>    </span><span class=vg>c</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=vg>c</span><span class=o>%</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>1</span><span class=p>)</span><span class=w> </span><span class=k>MOD</span><span class=w> </span><span class=il>15</span>
-<span class=w>    </span><span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=vg>x</span><span class=o>%</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=il>5</span><span class=p>)</span><span class=w> </span><span class=k>MOD</span><span class=w> </span><span class=il>500</span>
-
-<span class=w>    </span><span class=c1>&#39; Flush the rendered frame to the screen.</span>
-<span class=w>    </span><span class=vg>GFX_SYNC</span>
-
-<span class=w>    </span><span class=c1>&#39; Pause until the next frame.</span>
-<span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=mf>0.01</span>
-<span class=kr>WEND</span>
-<span class=kr>CLS</span>
-<span class=kr>COLOR</span>
-
-<span class=c1>&#39; Enable automatic video syncing.</span>
-<span class=vg>GFX_SYNC</span><span class=w> </span><span class=vg>TRUE</span>
-</code></pre></div><h1 id=fs>File system</h1>
-<p>EndBASIC offers a DOS-like interface to access and manipulate files.</p>
-<p>Due to the fact that the EndBASIC command line <em>is</em> BASIC, there are a few oddities you will have to get used to when typing commands. The first one is that paths and file names are strings, and as such must be double-quoted. The second one is that arguments to commands must be separated by commas, not just spaces.</p>
-<h2 id=fs-paths>Drives and paths</h2>
-<p>The EndBASIC virtual file system is composed of a bunch of drives, each containing its own collection of files. Drives are mapped to targets, and these targets expose a variety of backend storage services.</p>
-<p>Paths in EndBASIC have the general form <code>[DRIVE:][/]FILENAME</code>. Both the drive name and the slash are optional. When all components are present, such as in <code>LOCAL:/FILE.BAS</code>, we have an absolute path that unique identifies a file; when the drive component is missing, such as in <code>FILE.BAS</code>, we have a relative path to the current working directory.</p>
-<p>The current working directory can be queried with the <code>CWD</code> command and can be changed via the <code>CD</code> command. For example:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-PWD
-
-    Working directory: LOCAL:/
-    System location: /home/jmmv/Documents/endbasic/
-
-Ready
-CD &#34;memory:&#34;
-Ready
-PWD
-
-    Working directory: MEMORY:/
-    No system location available
-</code></pre></div><p>Directories are not currently supported. This is why the slash in the paths above is optional, but it&rsquo;s good to get in the habit of specifying it because support for directories will come later.</p>
-<h2 id=fs-providers>Drive providers</h2>
-<p>Drives are mapped to targets, and these targets are backed by virtual file system providers that expose a variety of backend storage services.</p>
-<p>The following providers are currently supported:</p>
-<table>
-<thead>
-<tr>
-<th>Target scheme</th>
-<th>Availability</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><nobr><code>cloud://user</code></nobr></td>
-<td>All</td>
-<td>Exposes the cloud drive of the <code>user</code>. More on this in the <a href=#cloud>Cloud service</a> section.</td>
-</tr>
-<tr>
-<td><nobr><code>demos://</code></nobr></td>
-<td>All</td>
-<td>Read-only collection of built-in demo programs.</td>
-</tr>
-<tr>
-<td><code>file:///path</code></nobr></td>
-<td>Desktop</td>
-<td>Exposes the <code>/path</code> directory of the local file system. Any subdirectories are ignored.</td>
-</tr>
-<tr>
-<td><nobr><code>local://</code></nobr></td>
-<td>Web</td>
-<td>Provides a file system backed by the browser&rsquo;s local storage. Files saved in this provider never leave your machine.</td>
-</tr>
-<tr>
-<td><nobr><code>memory://</code></nobr></td>
-<td>All</td>
-<td>Memory-backed file system. Different instances of this provider offer disjoint file systems.</td>
-</tr>
-</tbody>
-</table>
-<p>The list of currently-mounted file systems can be queried and modified via the <code>MOUNT</code> command. For example:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-MOUNT &#34;cloud://jmmv&#34; AS &#34;jmmv&#34;
-Ready
-MOUNT
-
-    Name      Target
-    DEMOS     demos://
-    JMMV      cloud://jmmv
-    LOCAL     file:///home/jmmv/Documents/endbasic
-    MEMORY    memory://
-
-    4 drive(s)
-</code></pre></div><h2 id=fs-side-loading>Side-loading files</h2>
-<p>While EndBASIC provides a built-in editor, the editor is currently quite simplistic. If you find that the editor limits your development speed, you can side-load files into the interpreter. This feature is only available in the desktop version of EndBASIC.</p>
-<p>To do this, you can either save files under the default projects location, which typically is <code>~/Documents/endbasic/</code>, or you can save them under a directory of your choice and then mount that directory inside EndBASIC using the <code>file://</code> mount target.</p>
-<p>For example, say that you create a program outside of EndBASIC:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>$ mkdir ~/bas
-$ vim ~/bas/example.bas
-... edit edit edit ...
-</code></pre></div><p>Once the file is saved, you can access it like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-MOUNT &#34;file:///home/jmmv/bas&#34; AS &#34;X&#34;
-Ready
-CD &#34;X:&#34;
-Ready
-DIR
-
-    Directory of X:/
-
-    Modified              Size    Name
-    2022-06-03 23:37        23    example.bas
-
-    1 file(s), 23 bytes
-</code></pre></div><h1 id=cloud>Cloud service</h1>
-<p>The EndBASIC service is a simple cloud-based file system that lets you maintain and share your creations with the world, right from the EndBASIC command line.</p>
-<p>You can always consume public content without creating an account but, to share your own content, you will need an account first.</p>
-<h2 id=cloud-public>Accessing public content</h2>
-<p>To access a file that was shared publicly by you or someone else, you have two options.</p>
-<p>The first option is to tell the web UI to automatically run the program based on a URL of the form:</p>
-<blockquote>
-<p><code>https://repl.endbasic.dev/?run=user/file.bas</code></p>
-</blockquote>
-<p>Replace <code>user</code> with the name of the user that has shared the file and <code>file.bas</code> with the name of the file that was shared. With that, the interpreter will launch, mount the user&rsquo;s public drive, and run the given file. Try it now: <a href="https://repl.endbasic.dev/?run=endbasic/welcome.bas">run the <code>endbasic/welcome.bas</code> demo!</a></p>
-<p>The second option is to mount the user&rsquo;s drive interactively and then investigate its contents. You can do so providing a target of the form <code>cloud://user</code> to the <code>MOUNT</code> command, where <code>user</code> is the name of the user that shared the file. Then, inspect the drive contents with the <code>DIR</code> command and load a file with the <code>LOAD</code> command. Here is a sample session:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-MOUNT &#34;cloud://endbasic&#34; AS &#34;e&#34;
-Ready
-CD &#34;e:&#34;
-Ready
-DIR
-
-    Directory of E:/
-
-    Modified              Size    Name
-    2022-05-27 16:25        40    welcome.bas
-
-    1 file(s), 40 bytes
-
-Ready
-LOAD &#34;welcome.bas&#34;
-Ready
-LIST
-PRINT &#34;Welcome to the EndBASIC service!&#34;
-</code></pre></div><p>When mounting a cloud drive, the contents you see will depend on your credentials. If you are <em>not</em> logged in, all you will see are the user&rsquo;s public files (if any). If you <em>are</em> logged in, whoever, you will also see any files that the user may have shared directly with you.</p>
-<h2 id=cloud-signup>Signing up</h2>
-<p>To create an account, use the <code>SIGNUP</code> command from within the interpreter. You will have to provide basic information for the account, such as a username and a password, and you will also have to provide an email address for account activation (see <a href=#cloud-privacy>privacy notes</a>). Here is what you can expect during account creation:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-SIGNUP
-
-    Let&#39;s gather some information to create your cloud account.
-
-    You can abort this process at any time by hitting Ctrl+C and you will
-    be given a chance to review your inputs before creating the account.
-
-Username: demo
-Password: *********
-Retype password: *********
-
-    We also need your email address to activate your account.
-
-    Your email address will be kept on file in case we have to notify you
-    of important service issues and will never be made public.  You will
-    be asked if you want to receive promotional email messages (like new
-    release announcements) or not, and your selection here will have no
-    adverse impact in the service you receive.
-
-Email address: your-email@example.com
-Receive promotional email (y/N)? n
-
-    We are ready to go.  Please review your answers before proceeding.
-
-Username: demo10
-Email address: your-email@example.com
-Promotional email: no
-Continue (y/N)? y
-
-    Your account has been created and is pending activation.
-
-    Check your email now and look for a message from the EndBASIC Service.
-    Follow the instructions in it to activate your account.  Make sure to
-    check your spam folder.
-
-    Once your account is activated, come back here and use LOGIN to get
-    started!
-
-    If you encounter any problems, please contact support@endbasic.dev.
-</code></pre></div><p>After you complete this process, check your email and look out for a message from the EndBASIC service. You&rsquo;ll have to click on the link provided within to activate your account, and you must do that before proceeding.</p>
-<p>Note the question above to receive promotional emails. If you consent to that, you will receive notifications of new EndBASIC releases and new <a href=https://jmmv.dev/tags/endbasic/>blog posts</a> via email. I&rsquo;d appreciate it if you said yes as a mechanism to keep a certain level of engagement in EndBASIC over time. Expect about one email a month at most.</p>
-<h2 id=cloud-login>Logging in</h2>
-<p>Once you have created and activated your account, all you have to do is type <code>LOGIN "username"</code> to log into your account:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-LOGIN &#34;demo&#34;
-Password: ********
-
------ BEGIN SERVER MOTD -----
-Welcome back, demo! It&#39;s good to see you again.
------  END SERVER MOTD  -----
-</code></pre></div><p>After a successful log in, the EndBASIC client will mount the <code>CLOUD:</code> drive, which is your personal space to hold files in the cloud. Any files stored in this drive are private to you by default, but they can be shared with others with ease using the <code>SHARE</code> command.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-CD &#34;CLOUD:&#34;
-Ready
-DIR
-
-    Directory of CLOUD:/
-
-    Modified              Size    Name
-    2021-06-25 13:51       116    thanks.bas
-    2021-06-25 13:50       103    welcome.bas
-
-    2 file(s), 219 bytes
-    65317 of 65536 bytes free
-</code></pre></div><h2 id=cloud-upload>Uploading a program</h2>
-<p>Sometimes, it is simpler to develop a program outside of the EndBASIC environment and then <a href=#fs-side-loading>side-load it into the interpreter</a>. This is easy to do in the desktop build of EndBASIC because it has direct access to the local file system, but it is hard to do for any file in the cloud.</p>
-<p>The way around this is to develop your program locally and then upload it to the cloud. To do this, you will have to do a manual file copy. For example, suppose we want to upload <code>LOCAL:/upload.bas</code> to <code>CLOUD:/upload.bas</code>. We can do so by loading the file into memory and then saving it again, like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-LOAD &#34;LOCAL:/upload.bas&#34;
-Ready
-SAVE &#34;CLOUD:/upload.bas&#34;
-Saved as CLOUD:/upload.bas
-</code></pre></div><h2 id=cloud-public-share>Publishing a program</h2>
-<p>The primary purpose of the EndBASIC cloud service is to let you share your magical creations with the public.</p>
-<p>Files saved in cloud drives have reader ACLs that control who can read them. You can give read permissions to individual users, or you can give read permissions to everyone by means of the <code>public</code> pseudo-user.</p>
-<p>Suppose we have saved a <code>awesome.bas</code> file in our cloud drive. We can share it with the public like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain>Ready
-SHARE &#34;CLOUD:/awesome.bas&#34;, &#34;public+r&#34;
-
-    You have made the file publicly readable.  As a result, other people
-    can now auto-run your public file by visiting:
-
-    https://repl.endbasic.dev/?run=jmmv/awesome.bas
-</code></pre></div><p>Note how the <code>SHARE</code> command detects that you have made the file public and will print the URL that users can open to <a href=#cloud-public>automatically launch your program</a>.</p>
-<h2 id=cloud-privacy>Privacy and security notes</h2>
-<p>EndBASIC is, right now, a toy project. While I have tried my best to keep the service secure and private, I ask that you <i>do not store any sensitive information in this service</i>.</p>
-<p>More specifically:</p>
-<ol>
-<li>
-<p>Your user account and files are stored in a PostgreSQL database managed by Azure. Read the <a href=https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-overview>Azure Encryption documentation</a> for more details on what this entails.</p>
-</li>
-<li>
-<p>I collect high-level metadata on all requests to the cloud service for troubleshooting purposes and basic usage analytics. Details include the contacted API endpoint, the client IP address, and the originating browser agent. The logs do not include the request payloads, but obviously the database does.</p>
-</li>
-<li>
-<p>The email address collected during the sign-up process will only be used for critical service-related communications by default. These can include notifications of data loss due to the evolving nature of the service. There has only been the need to send one such notification so far, and I expect the volume of these emails to be near zero.</p>
-</li>
-<li>
-<p>Your email address will never be sold nor given to third-parties. However, as part of giving you service, your email must flow through SendGrid and has is in theory visible to the operators of the PostgreSQL database managed by Azure.</p>
-</li>
-<li>
-<p>You can opt in to receiving &ldquo;promotional emails&rdquo;, and I would appreciate it if you did so. These emails will include notifications of new EndBASIC releases as well as notifications of new <a href=https://jmmv.dev/tags/endbasic/>blog posts</a>. You can expect about one such message per month on average.</p>
-</li>
-<li>
-<p>You can always update your account&rsquo;s information or permanently delete your account and all information associated with it. <a href=mailto:support@endbasic.dev>Contact support</a> and I&rsquo;ll be happy to assist you; I haven&rsquo;t had a chance to build those features within the interface yet.</p>
-</li>
-</ol>
-<h1 id=hw>Hardware access</h1>
-<p>EndBASIC supports limited direct hardware access as a way to play with real-world hardware. Toying with LEDs, buttons, and the like can be a great way of learning how computers work, and is the reason why this support was builtin EndBASIC.</p>
-<p>Hardware support is currently limited to the desktop builds for the Raspberry Pi, which you can get from the <a href=/download.html>Download</a> page.</p>
-<h2 id=hw-gpio>GPIO</h2>
-<p>EndBASIC has support to manipulate the GPIO pins of the Raspberry Pi via the family of commands described in <code>HELP "HARDWARE"</code>.</p>
-<p>As an example, here is how to wait for a physical button press attached to pin number 8:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=vg>GPIO_SETUP</span><span class=w> </span><span class=il>8</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;IN-PULL-DOWN&#34;</span>
-<span class=vg>pressed</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>FALSE</span>
-<span class=kr>WHILE</span><span class=w> </span><span class=ow>NOT</span><span class=w> </span><span class=vg>pressed</span><span class=o>?</span>
-<span class=w>    </span><span class=vg>pressed</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>GPIO_READ</span><span class=p>(</span><span class=il>8</span><span class=p>)</span>
-<span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=mf>0.01</span>
-<span class=kr>WEND</span>
-</code></pre></div><p>And here is how to flash an LED attached to pin number 18:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-basic data-lang=basic><span class=vg>GPIO_SETUP</span><span class=w> </span><span class=il>18</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;OUT&#34;</span>
-<span class=vg>state</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=vg>TRUE</span>
-<span class=kr>FOR</span><span class=w> </span><span class=vg>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=il>1</span><span class=w> </span><span class=vg>to</span><span class=w> </span><span class=il>10</span>
-<span class=w>    </span><span class=vg>GPIO_WRITE</span><span class=w> </span><span class=il>18</span><span class=p>,</span><span class=w> </span><span class=vg>state</span><span class=o>?</span>
-<span class=w>    </span><span class=kr>SLEEP</span><span class=w> </span><span class=il>1</span>
-<span class=w>    </span><span class=vg>state</span><span class=o>?</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=ow>NOT</span><span class=w> </span><span class=vg>state</span><span class=o>?</span>
-<span class=kr>NEXT</span>
-<span class=vg>GPIO_CLEAR</span>
-</code></pre></div><h1 id=config>Configuration</h1>
-<h2 id=config-autoexec>AUTOEXEC.BAS</h2>
-<p>The EndBASIC interpreter looks for a file named <code>AUTOEXEC.BAS</code> (all uppercase) in the <code>LOCAL:/</code> drive at startup time and, if found, will run it before dropping you into the command prompt.</p>
-<p>You can create this file from within the interpreter and make it run any commands you like. A common use may be to run <code>LOGIN</code> to automatically log into your cloud account. Or you could use it to customize the appearance of the console by changing its colors.</p>
-</article>
-<footer class="container py-5">
-<div class=row>
-<div class="col-12 col-md text-center">
-EndBASIC
-<small class="d-block mb-3 text-muted">Julio Merino &copy; 2020-2022</small>
-</div>
-</div>
-</footer>
-<script>const SITE_ID='6a633c2c-7fda-11ec-86e4-1cfd087199c2'</script>
-<script type=module>
-  import { addAnchorsToHeaders, RequestsClient } from "\/js\/main.b2165fe5f7efc012c3b988f4edfa3c4a940b338c442744e1e9ef8b8386f10d05.js";
+  import { addAnchorsToHeaders, RequestsClient } from "\/js\/main.7b19cd2eaa4ec914fc9d4f14c3ae574cbc0cbe9ff166cf8c8d8097b8b04adb38.js";
   new RequestsClient(SITE_ID).saveRequest();
 
   addAnchorsToHeaders();
-</script>
-<noscript>
-<img src="https://hugo-dynamic.endbasic.dev/api/sites/6a633c2c-7fda-11ec-86e4-1cfd087199c2/pages/aHR0cHM6Ly93d3cuZW5kYmFzaWMuZGV2L2RvY3MuaHRtbA==/stamp.gif" style=display:none>
-</noscript>
-</body>
-</html>
+</script><noscript><img src="https://hugo-dynamic.endbasic.dev/api/sites/6a633c2c-7fda-11ec-86e4-1cfd087199c2/pages/aHR0cHM6Ly93d3cuZW5kYmFzaWMuZGV2L2RvY3MuaHRtbA==/stamp.gif" style=display:none></noscript></body></html>
