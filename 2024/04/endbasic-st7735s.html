@@ -85,8 +85,14 @@ One of the defining characteristics of EndBASIC is its hybrid console: what look
 <small class="d-block text-muted">Julio Merino &copy; 2020&ndash;2025</small></div></div></div></footer><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=jmmv data-description="Support me on Buy me a coffee!" data-message data-color=#FF813F data-position=Right data-x_margin=18 data-y_margin=18></script><script type=module>
   const SITE_ID = '6a633c2c-7fda-11ec-86e4-1cfd087199c2';
 
-  import { addAnchorsToHeaders, RequestsClient } from "\/js\/main.401f0b9ece66070cd6f0313349349320e8f07f87ba76262d59bb3e2093c49b58.js";
-  new RequestsClient(SITE_ID).saveRequest();
+  import {
+      addAnchorsToHeaders,
+      trackDownloads,
+      RequestsClient,
+  } from "\/js\/main.bf2efcdfc0907f7683310a7085993c04cefb6d75e8bc1330420d24263540543a.js";
+  const client = new RequestsClient(SITE_ID);
+  client.saveThisRequest();
 
   addAnchorsToHeaders();
+  trackDownloads(client);
 </script><noscript><img src=https://hugo-dynamic.endbasic.dev/api/sites/6a633c2c-7fda-11ec-86e4-1cfd087199c2/pages/aHR0cHM6Ly93d3cuZW5kYmFzaWMuZGV2LzIwMjQvMDQvZW5kYmFzaWMtc3Q3NzM1cy5odG1s/stamp.gif style=display:none></noscript></body></html>
